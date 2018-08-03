@@ -1,0 +1,48 @@
+<html>
+  <head>
+    <style>
+      body {
+        background-color: #1d2126;
+        color: white;
+      }
+      #modal {
+        display:none;
+        height: 200px;
+        width: 200px;
+        background-color: purple;
+      }
+
+    </style>
+  </head>
+  <body>
+    <h1>Hello, World</h1>
+    <div id="modal"><input /><button id="hidemodal">click to make api call</button></div>
+    <button id="showmodal">show modal</button>
+  </body>
+  <script>
+
+  let modal = document.getElementById("modal");
+  let btn1 = document.getElementById("showmodal");
+  let btn2 = document.getElementById("hidemodal");
+
+  btn1.addEventListener("click", modalAdd, false);
+  btn2.addEventListener("click", modalRemove, false);
+
+  function modalAdd() {
+    document.getElementById("modal").style.display = "block";
+  }
+  function modalRemove() {
+    document.getElementById("modal").style.display = "hidden";
+  }
+
+
+  </script>
+</html>
+
+
+ <!--
+// Implement modal
+// https://offerup.com/item/detail/520792060/ click button report to see modal
+// btn1: click to show modal
+// modal: input, btn2
+// btn2: click to make an api call with text from inputbox, if success, close modal; if fail, show err msg inside modal

@@ -1,0 +1,150 @@
+body {
+	font-family: 'Raleway', sans-serif;
+	background-color:#ecf5f3;
+}
+
+h1.test {
+	color: purple;
+	margin-left:30px;
+}
+
+div.container {
+	width: 100%;
+}
+
+div.left-nav-container {
+	width:60%;
+	height: 100px;
+	float:left;
+}
+
+div.right-nav-container {
+	width:30%;
+	height: 100px;
+	float:left;
+}
+
+ul {
+	text-align: center;
+}
+
+
+form {
+	margin-top: 20px;
+}
+
+label {
+	font-size: 24px;
+	padding-top:3px;
+}
+
+li {
+	display:inline;
+	font-size:24px;
+	margin-right: 20px;
+}
+
+input.searchInput {
+	/* display: inline; */
+	height: 28px;
+	padding-bottom: 3px;
+
+}
+
+.container, .container2 {
+	overflow: auto;
+	width:100%;
+}
+
+.col1 {
+	background-color:#a50000;
+	float:left;
+	width:33%;
+	height:100px;
+	margin:0 .33% 0 0;
+}
+
+.col2 {
+	background-color:#3c744b;
+	float:left;
+	width:33%;
+	height:100px;
+	margin:0 .33% 0 0;
+}
+
+.col3 {
+	background-color:pink;
+	float:left;
+	width:33%;
+	height:100px;
+	margin:0 .33% 0 0;
+}
+
+.col1a, .col2a, .col3a {
+	float: left;
+	width: 33%;
+	text-align: center;
+}
+
+div.table-container, div.modal, div.img-container, div#openModalContainer, div#startOverButtonContainer, .col2 {
+	text-align: center;
+}
+
+table {
+	margin-right: auto;
+	margin-left: auto;
+}
+
+table, th, td {
+	border-style: solid;
+	border-color: black;
+	border-width:2px;
+}
+
+td {
+	text-align:center;
+	width: 120px;
+	height:40px;
+	cursor: pointer;
+}
+
+td:hover {
+	background-color:#f1d2fc;
+}
+
+button {
+	cursor: pointer;
+}
+
+form {
+	display: inline-block;
+}
+div.form-container {
+	text-align: center;
+}
+/* fieldset {
+	font-size:12px;
+	text-align: left;
+} */
+/* .formClass {
+	width: 800px;
+	height: 800px;
+} */
+.formTitle {
+	float: left;
+	width: 100px;
+	text-align:right;
+	padding-right: 10px;
+}
+
+.testInputClass {
+	color: purple;
+}
+
+#homeSpan {
+	color:#b947d1;
+}
+
+.modal, #startOverButtonContainer {
+	display: none;
+}

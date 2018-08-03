@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset=utf-8 />
+<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="style.css" />
+<title>forms page</title>
+</head>
+<body>
+	<h1 class="test">
+		This is Madeleine's Awesome Fucking Form Page!!!
+	</h1>
+	<nav>
+		<div class="left-nav-container">
+			<ul>
+				<li><a href="index.html">home</a></li>
+				<li><a href="lists.html">lists</a></li>
+				<li><a href="jquery.html">jquery</a></li>
+				<li><a href="forms2.html">forms2</a></li>
+				<li><a href="forms3.html">forms3</a></li>
+				<li><a href="getData.html">getData</a></li>
+				<li><a href="getData2.html">getData2</a></li>
+			</ul>
+		</div>
+		<div class="right-nav-container">
+			<!-- <ul>
+				<li> -->
+				<form>
+					<label for="searchBar">search</label>
+					<input type="search" class="searchInput" id="searchBar" name="search" />
+				</form>
+				<!-- </li>
+			</ul> -->
+		</div>
+	</nav>
+	<div class="container">
+		<div class="col col1"></div>
+		<div class="col col2"> </div>
+		<div class="col col3"> </div>
+	</div>
+	<br />
+	<div class="form-container">
+		<h3>Awesome Form</h3>
+		<form action="/forms" method="post">
+			<fieldset>
+				<div>
+					<label for="name" class="title">Name:</label>
+					<input type="text" id="name" name="name" />
+				</div>
+				<div>
+					<label for="email" class="title">Email:</label>
+					<input type="email" id="email" name="email" />
+				</div>
+				<div class="radio-buttons">
+					<span class="title">Gender:</span>
+					<input type="radio" name="gender" id="male" value="M" />
+					<label for="male">M</label>
+					<input type="radio" name="gender" id="female" value="F" />
+					<label for="female">F</label><br />
+				</div>
+				<div class="submit">
+					<input type="submit" value="Register" id="submit" />
+				</div>
+			</fieldset>
+		</form>
+
+	</div>
+	<script type="text/javascript" src="index.js"></script>
+</body>
+</html>

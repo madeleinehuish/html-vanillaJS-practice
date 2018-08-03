@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset=utf-8 />
+<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="style.css" />
+<title>forms page</title>
+</head>
+<body>
+<h1 class="test">
+		This is Madeleine's Awesome Fucking Dropdown Form Page!!!
+	</h1>
+	<nav>
+		<div class="left-nav-container">
+			<ul>
+				<li><a href="index.html">home</a></li>
+				<li><a href="lists.html">lists</a></li>
+				<li><a href="jquery.html">jquery</a></li>
+				<li><a href="forms.html">forms</a></li>
+				<li><a href="forms3.html">forms3</a></li>
+				<li><a href="getData.html">getData</a></li>
+				<li><a href="getData2.html">getData2</a></li>
+			</ul>
+		</div>
+		<div class="right-nav-container">
+			<!-- <ul>
+				<li> -->
+				<form>
+					<label for="searchBar">search</label>
+					<input type="search" class="searchInput" id="searchBar" name="search" />
+				</form>
+				<!-- </li>
+			</ul> -->
+		</div>
+	</nav>
+	<div class="container">
+		<div class="col col1"></div>
+		<div class="col col2"> </div>
+		<div class="col col3"> </div>
+	</div>
+	<div class="form-container">
+		<h4>Awesome DropDown Form (copied from MDN)</h4>
+		<!-- see https://developer.mozilla.org/en-US/docs/Learn/HTML/Forms/The_native_form_widgets -->
+		<form action="/form" method="post">
+			<fieldset>
+        <p>
+            <label for="simple">A simple select box:</label>
+            <select id="simple" name="simple">
+            <option>Banana</option>
+            <option>Cherry</option>
+            <option>Lemon</option>
+          </select>
+        </p>
+        <p>
+            <label for="groups">Select box with option groups:</label>
+            <select id="groups" name="groups">
+            <optgroup label="fruits">
+              <option>Banana</option>
+              <option selected>Cherry</option>
+              <option>Lemon</option>
+            </optgroup>
+            <optgroup label="vegetables">
+              <option>Carrot</option>
+              <option>Eggplant</option>
+              <option>Potato</option>
+            </optgroup>
+          </select>
+        </p>
+        <p>
+            <label for="multi">Select box allowing multiple selections:</label>
+            <select multiple id="multi" name="multi">
+            <option>Banana</option>
+            <option>Cherry</option>
+            <option>Lemon</option>
+          </select>
+        </p>
+        <p>
+            <label for="myFruit">What's your favorite fruit?</label>
+            <input type="text" name="myFruit" id="myFruit" list="mySuggestion">
+            <datalist id="mySuggestion">
+              <option>Apple</option>
+              <option>Banana</option>
+              <option>Blackberry</option>
+              <option>Blueberry</option>
+              <option>Lemon</option>
+              <option>Lychee</option>
+              <option>Peach</option>
+              <option>Pear</option>
+            </datalist>
+        </p>
+        <p>
+            <label for="myFruit">What is your favorite fruit? (With fallback)</label>
+            <input type="text" id="myFruit" name="fruit" list="fruitList">
+            <datalist id="fruitList">   <label for="suggestion">or pick a fruit</label>
+              <select id="suggestion" name="altFruit">
+                <option>Apple</option>
+                <option>Banana</option>
+                <option>Blackberry</option>
+                <option>Blueberry</option>
+                <option>Lemon</option>
+                <option>Lychee</option>
+                <option>Peach</option>
+                <option>Pear</option>
+              </select>
+            </datalist>
+        </p>
+        <p>
+        <button type="submit">Submit me!</button>
+        </p>
+			</fieldset>
+    </form>
+
+	</div>
+	<script type="text/javascript" src="index.js"></script>
+</body>
+</html>
