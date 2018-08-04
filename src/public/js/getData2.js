@@ -95,20 +95,42 @@ function resetData() {
 	dataOutputDiv.innerHTML = '';
 }
 
-//this example sends data as json
+//this example posts data as json through XMLHttpRequest
 function postData() {
 	let xhr = new XMLHttpRequest();
-	let url = '/forms';
-	let dataObject = {name:"John", time:"2pm"};
+	let url = '../forms';
+	let dataObject = { name:"Madeleine", time:"2pm" };
 	xhr.open('POST', url, true);
 	xhr.setRequestHeader('Content-Type', 'application/json');
 	xhr.onreadystatechange = () => {
     if(xhr.readyState == 4 && xhr.status == 200) {
-        alert(xhr.responseText);
+        console.log('response from server: ',xhr.responseText);
+				alert(xhr.responseText);
     }
 	}
 	xhr.send(JSON.stringify(dataObject));
 }
+
+// //this example posts data through fetch
+// //there is one problem: response data from server is not coming back...
+// function postData() {
+// 	let url = '../forms';
+// 	let dataObject = { name:"Madeleine", time:"2pm" };
+//
+// 	fetch(url, {
+// 		method: 'POST', // or 'PUT'
+// 		body: JSON.stringify(dataObject), //data here can be a string or object
+// 		headers: {
+// 			'Content-Type': 'application/json'
+// 		}
+// 	})
+// 	.then(res => {
+// 		console.log('res.json(): ', res.json())
+// 		return res.json();
+// 	})
+// 	.catch(error => console.error('Error:', error))
+// 	.then(response => console.log('Success:', response));
+// }
 
 // //this example sends data as params
 // function postData() {

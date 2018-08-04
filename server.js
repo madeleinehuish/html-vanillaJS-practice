@@ -7,7 +7,7 @@ const bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({ extended: true })); //need this for regular form elements
 app.use(bodyParser.json());
 
-app.use(express.static(__dirname + "/src")); //use static files in ROOT/src folder
+app.use(express.static(__dirname + "/src/public")); //use static files in ROOT/src folder
 
 app.post("/forms", (request, response) => { //root dir
 	console.log('Form received!!!');
