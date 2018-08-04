@@ -108,9 +108,7 @@ td {
 	cursor: pointer;
 }
 
-td:hover {
-	background-color:#f1d2fc;
-}
+
 
 button {
 	cursor: pointer;
@@ -147,4 +145,13 @@ div.form-container {
 
 .modal, #startOverButtonContainer {
 	display: none;
+}
+
+#tableInput {
+	margin-bottom: 10px;
+	padding-top: 5px;
+}
+
+#table15 {
+	/* font-size: 11px; */
 }
