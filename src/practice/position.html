@@ -87,11 +87,13 @@
 
 
     function staticFunc() {
+      myCoolDiv.style.margin = '0 auto';
       myCoolDiv.style.float = 'none';
       myCoolDiv.style.position = 'static';
     }
 
     function relativeFunc() {
+      myCoolDiv.style.margin = '0 auto';
       myCoolDiv.style.float = 'none';
       myCoolDiv.style.position = 'relative';
       myCoolDiv.style.left = '80px';
@@ -99,6 +101,7 @@
     }
 
     function absoluteFunc() {
+      myCoolDiv.style.margin = '0 auto';
       myCoolDiv.style.float = 'none';
       myCoolDiv.style.position = 'absolute';
       myCoolDiv.style.left = '75px';
@@ -106,19 +109,24 @@
     }
 
     function stickyFunc() {
+      myCoolDiv.style.margin = '0 auto';
       myCoolDiv.style.float = 'none';
       myCoolDiv.style.position = 'sticky';
       myCoolDiv.style.top = '20px';
     }
 
     function floatLeftFunc() {
+      myCoolDiv.style.margin = '0 auto';
       myCoolDiv.style.position = 'static';
       myCoolDiv.style.float = 'left';
+      myCoolDiv.style.marginRight = '8px';
     }
 
     function floatRightFunc() {
+      myCoolDiv.style.margin = '0 auto';
       myCoolDiv.style.position = 'static';
       myCoolDiv.style.float = 'right';
+      myCoolDiv.style.marginLeft = '3px';
     }
 
   </script>
