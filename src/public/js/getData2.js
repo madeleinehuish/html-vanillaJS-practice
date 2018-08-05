@@ -98,7 +98,7 @@ function resetData() {
 //this example posts data as json through XMLHttpRequest
 function postData() {
 	let xhr = new XMLHttpRequest();
-	let url = '../forms';
+	let url = 'forms';
 	let dataObject = { name:"Madeleine", time:"2pm" };
 	xhr.open('POST', url, true);
 	xhr.setRequestHeader('Content-Type', 'application/json');

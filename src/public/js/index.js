@@ -1,4 +1,3 @@
-//make search bar save value and print it to the screen somewhere
 
 let table = document.getElementById('tableId');
 let tableBody = document.getElementById('tableBody');
@@ -9,6 +8,8 @@ let tableElems = document.querySelectorAll('td');
 let clearButton = document.getElementById('clearButton');
 let searchInput = document.getElementById('testInputBox');
 let tableInput = document.getElementById('tableInput');
+// let submitButton = document.getElementById('submitF');
+// let formMessage = document.getElementById('formMessage');
 
 for(let column of tableColumns) {
 	column.addEventListener('click', click, false);
@@ -20,6 +21,7 @@ for(let td of tableElems) {
 }
 
 clearButton.addEventListener('click', clear, false);
+// submitButton.addEventListener('click', submit, false);
 
 searchInput.addEventListener('input', event => {
 	console.log('searchInput: ',event.target.value);
@@ -91,6 +93,11 @@ function clear() {
 	}
 	tableInput.value = '';
 }
+
+// function submit() {
+// 	// console.log('event: ', event);
+// 	console.log('submit')
+// }
 
 
 //1. find nth element from search bar

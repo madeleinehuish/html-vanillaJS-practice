@@ -1,0 +1,274 @@
+<html>
+  <head>
+    <style>
+      body {
+        background-color: #ecf5f3;
+        color: green;
+        width:100%;
+        text-align:center;
+      }
+			#formContainer {
+        width:500px;
+        height:600px;
+        background-color: #d2f8d2;
+        margin:0 auto;
+        border:2px solid darkgreen;
+        text-align:left;
+			}
+      #submitButton {
+        margin-left:15px;
+      }
+      input {
+        /* text-align: right; */
+        padding-bottom: 5px;
+      }
+      .colContainer {
+        margin-left: 8px;
+        width: 100%;
+        overflow: auto;
+      }
+      .colSmall {
+        margin-top: 5px;
+        width: 5%;
+        float:left;
+        /* background-color: pink; */
+      }
+      .colHalf {
+        margin-top: 5px;
+        width: 15%;
+        float:left;
+      }
+      .col {
+        margin-top: 5px;
+        width: 20%;
+        float:left;
+        /* background-color: purple; */
+      }
+      .col2 {
+        margin-top: 5px;
+        width: 30%;
+        float:left;
+        /* background-color: yellow; */
+      }
+      .col3 {
+        margin-top: 5px;
+        width: 40%;
+        float:left;
+        /* background-color: grey; */
+      }
+      .colFull {
+        margin-top: 5px;
+        width:95%;
+        float:left;
+      }
+      label {
+        margin-left: 15px;
+      }
+      .row {
+        margin-top: 5px;
+      }
+      .radioB {
+        margin-bottom:2px;
+      }
+      /* #legendHead {
+        width: 200px;
+        margin:0 auto;
+      } */
+      #submitRow {
+        text-align:center;
+      }
+
+
+    </style>
+  </head>
+  <body>
+    <h1>Forms</h1>
+    <div id="formContainer">
+      <form action="/forms" method="post">
+
+        <!-- <div class="colContainer">
+          <div class="colFull">
+            <legend id="legendHead">
+              Cool Magic Form
+            </legend>
+          </div>
+        </div> -->
+
+        <br />
+        <div class="colContainer">
+          <div class="col">
+            <div class="row">
+              <label for="name">Name: </label>
+            </div>
+            <div class="row">
+              <label for="address">Address: </label>
+            </div>
+            <div class="row">
+              <label for="city">City: </label>
+            </div>
+            <div class="row">
+              <label for="state">State: </label>
+            </div>
+            <div class="row">
+              <label for="zip">Zip: </label>
+            </div>
+            <div class="row">
+              <label for="email">email: </label>
+            </div>
+            <div class="row">
+              <label for="comments">website: </label>
+            </div>
+          </div>
+          <div class="col2">
+            <div class="row">
+              <input type="text" id="name" required="required" name="name"/>
+            </div>
+            <div class="row">
+              <input type="text" id="address" name="address"/>
+            </div>
+            <div class="row">
+              <input type="text" id="city" name="city"/>
+            </div>
+            <div class="row">
+              <input type="text" id="state" name="state"/>
+            </div>
+            <div class="row">
+              <input type="text" id="zip" name="zip"/>
+            </div>
+            <div class="row">
+              <input type="email" required="required" id="email" name="email"/>
+            </div>
+            <div class="row">
+              <input type="url" id="url" name="url"/>
+            </div>
+          </div>
+          <div class="colSmall">
+
+          </div>
+          <div class="col3">
+            <fieldset>
+              <div class="radioContainer">
+                <legend>Select a Planeswalker</legend>
+                <div class="row">
+                  <input type="radio" class="radioB" checked value="Liliana" id="liliana" name="planeswalker"/>
+                  <label for="liliana">Liliana</label>
+                </div>
+                <div class="row">
+                  <input type="radio" class="radioB" value="Elspeth" id="elspeth" name="planeswalker"/>
+                  <label for="elspeth">Elspeth</label>
+                </div>
+                <div class="row">
+                  <input type="radio" class="radioB" value="Nissa" id="nissa" name="planeswalker"/>
+                  <label for="nissa">Nissa</label>
+                </div>
+                <div class="row">
+                  <input type="radio" class="radioB" value="Chandra" id="chandra" name="planeswalker"/>
+                  <label for="chandra">Chandra</label>
+                </div>
+                <div class="row">
+                  <input type="radio" class="radioB" value="Karn" id="karn" name="planeswalker"/>
+                  <label for="karn">Karn</label>
+                </div>
+              </div>
+            </fieldset>
+          </div>
+        </div>
+        <div class="colContainer">
+          <br />
+          <div class="colFull">
+            <fieldset>
+              <div class="checkedContainer">
+                <legend>Choose your favorite deck color/s</legend>
+
+                  <input type="checkbox" class="checkB" value="White" id="white" name="deckColor"/>
+                  White
+
+                  <input type="checkbox" class="checkB" value="Blue" id="blue" name="deckColor"/>
+                  Blue
+
+                  <input type="checkbox" class="checkB" value="Red" id="red" name="deckColor"/>
+                  Red
+
+                  <input type="checkbox" class="checkB" value="Green" id="green" name="deckColor"/>
+                  Green
+
+                  <input type="checkbox" class="checkB" value="Black" id="black" name="deckColor"/>
+                  Black
+
+              </div>
+            </fieldset>
+          </div>
+        </div>
+
+        <div class="colContainer">
+          <div class="colFull">
+          <fieldset>
+            <div class="selectContainer">
+              <legend>Pick your favorite MTG plane</legend>
+              <select name="favoritePlane">
+                <option value="Zendikar">Zendikar</option>
+                <option value="Innistrad">Innistrad</option>
+                <option value="Kaladesh">Kaladesh</option>
+                <option value="Amonkhet">Amonkhet</option>
+                <option value="Ixalan">Ixalan</option>
+                <option value="Dominaria">Dominaria</option>
+              </select>
+            </div>
+          </fieldset>
+          </div>
+        </div>
+
+        <div class="colContainer">
+          <div class="colFull">
+          <fieldset>
+            <div class="commentContainer">
+              <legend>Please leave any comments here!</legend>
+              <textarea type="text" id="comments" name="comments"></textarea>
+            </div>
+          </fieldset>
+          </div>
+        </div>
+
+
+        <div class="colContainer">
+          <div class="colHalf">
+            <div class="row">
+              <label for="date">Date:</label>
+            </div>
+          </div>
+          <div class="col2">
+            <div class="row">
+              <input type="date" id="date" name="date" />
+            </div>
+          </div>
+          <div class="colHalf">
+            <div class="row">
+              <label for="file">File:</label>
+            </div>
+          </div>
+          <div class="col2">
+            <div class="row">
+              <input type="file" id="file" name="file" />
+            </div>
+          </div>
+
+        </div>
+        <input type="hidden" name="secretHiddenMessage" value="Madeleine is Awesome :)" />
+        <br />
+
+        <div class="colFull" id="submitContainer">
+          <div class="row" id="submitRow">
+            <button id="submitButton">Submit</button>
+          </div>
+        </div>
+
+      </form>
+
+		</div>
+  </body>
+  <script>
+
+
+
+  </script>
+</html>
