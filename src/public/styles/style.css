@@ -155,3 +155,7 @@ div.form-container {
 #table15 {
 	/* font-size: 11px; */
 }
+
+.truckDiv ul li {
+	text-align:left;
+}

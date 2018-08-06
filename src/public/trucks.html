@@ -4,32 +4,30 @@
 <meta charset=utf-8 />
 <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
 <link rel="stylesheet" type="text/css" href="styles/style.css" />
-
-<title>JS DOM paragraph style</title>
+<title>forms page</title>
 </head>
 <body>
 	<h1 class="test">
-		This is Madeleine's Awesome Fucking Vanilla JS Lists Page!!!
+		This is Madeleine's Awesome Fucking Food Trucks Page!!!
 	</h1>
 	<nav>
 		<div class="left-nav-container">
 			<ul>
 				<li><a href="index.html">home</a></li>
+				<li><a href="lists.html">lists</a></li>
 				<li><a href="jquery.html">jquery</a></li>
-				<li><a href="forms.html">forms</a></li>
 				<li><a href="forms2.html">forms2</a></li>
 				<li><a href="forms3.html">forms3</a></li>
 				<li><a href="getData.html">getData</a></li>
 				<li><a href="getData2.html">getData2</a></li>
-				<li><a href="trucks.html">trucks</a></li>
 			</ul>
 		</div>
 		<div class="right-nav-container">
 			<!-- <ul>
 				<li> -->
 				<form>
-					<label for="listInput">search</label>
-					<input id="listInput" name="list" />
+					<label for="searchBar">search</label>
+					<input type="search" class="searchInput" id="searchBar" name="search" />
 				</form>
 				<!-- </li>
 			</ul> -->
@@ -41,11 +39,14 @@
 		<div class="col col3"> </div>
 	</div>
 	<br />
-	<div style="text-align:center">
-		Type into the search bar to filter the array
-	</div>
-	<div id="list-container"></div>
+	<div class="truck-container">
+		<h3>Push button to get list of current food trucks open in San Francisco</h3>
+		<button id="truckButton">Get Trucks</button>
+		<div id="truckDiv">
 
-	<script type="text/javascript" src="js/lists.js"></script>
+		</div>
+
+	</div>
+	<script type="text/javascript" src="js/trucks.js"></script>
 </body>
 </html>
