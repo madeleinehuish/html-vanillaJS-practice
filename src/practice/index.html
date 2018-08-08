@@ -267,7 +267,15 @@
 		</div>
   </body>
   <script>
-
+    let inputs = document.getElementsByTagName('input');
+    for (let elem of inputs) {
+      elem.addEventListener('mouseover', function() {
+        elem.style.backgroundColor = '#badbd3';
+      }, false)
+      elem.addEventListener('mouseout', function() {
+        elem.style.backgroundColor = '#ecf5f3'
+      })
+    }
 
 
   </script>

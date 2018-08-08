@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<style>
+		body {
+			background-color: #ecf5f3;
+			color: green;
+			width:100%;
+			text-align:center;
+		}
+		#container {
+			background-color: #d2f8d2;
+			height:600px;
+			width:600px;
+			margin:0 auto;
+			position:relative;
+		}
+		#centerThis {
+			width:40px;
+			height:40px;
+			background-color:purple;
+			margin: 0;
+			top: 300px;
+			left: 300px;
+			position:relative;
+		}
+	</style>
+</head>
+<body>
+	<div id="container">
+		<div id="centerThis">
+
+		</div>
+	</div>
+
+
+</body>
+<script>
+	let square = document.getElementById('centerThis');
+	let t = '300px';
+	let l = '300px';
+
+	function moveUp() {
+		console.log('up');
+		t = `${Number(t.substr(0,3)) - 5}px`;
+		console.log('t: ', t);
+		square.style.top = t;
+	}
+
+	function moveDown() {
+		console.log('down');
+		t = `${Number(t.substr(0,3)) + 5}px`;
+		console.log('t: ', t);
+		square.style.top = t;
+	}
+
+	function moveLeft() {
+		console.log('left');
+		l = `${Number(l.substr(0,3)) - 5}px`;
+		console.log('l: ', l);
+		square.style.left = l;
+	}
+
+	function moveRight() {
+		console.log('right');
+		l = `${Number(l.substr(0,3)) + 5}px`;
+		console.log('l: ', l);
+		square.style.left = l;
+	}
+
+	let body = document.body;
+	body.addEventListener('keydown', function(event) {
+		console.log(event.keyCode);
+		switch(event.keyCode) {
+			case 38 :
+				moveUp();
+				break;
+			case 40 :
+				moveDown();
+				break;
+			case 37 :
+				moveLeft();
+				break;
+			case 39 :
+				moveRight();
+				break;
+			default :
+				break;
+		}
+	}, false)
+
+</script>
+</html>

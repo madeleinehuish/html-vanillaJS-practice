@@ -3,21 +3,15 @@ let table = document.getElementById('tableId');
 let tableBody = document.getElementById('tableBody');
 let showElem = document.getElementById('showElem');
 let tableColumns = document.querySelectorAll('td');
-let tableElems = document.querySelectorAll('td');
 
 let clearButton = document.getElementById('clearButton');
 let searchInput = document.getElementById('testInputBox');
 let tableInput = document.getElementById('tableInput');
-// let submitButton = document.getElementById('submitF');
-// let formMessage = document.getElementById('formMessage');
 
 for(let column of tableColumns) {
 	column.addEventListener('click', click, false);
-}
-
-for(let td of tableElems) {
-	td.addEventListener('mouseover', hover, false);
-	td.addEventListener('mouseout', hoverExit, false);
+	column.addEventListener('mouseover', hover, false);
+	column.addEventListener('mouseout', hoverExit, false);
 }
 
 clearButton.addEventListener('click', clear, false);
@@ -87,7 +81,7 @@ function click(e) {
 function clear() {
 	let newDiv = '<div></div>';
 	showElem.innerHTML = newDiv;
-	for(let td of tableElems) {
+	for(let td of tableColumns) {
 		console.log('row: ', td);
 		td.style.backgroundColor = '#ecf5f3';
 	}
