@@ -29,7 +29,6 @@
 <body>
 	<div id="container">
 		<div id="centerThis">
-
 		</div>
 	</div>
 
@@ -37,8 +36,11 @@
 </body>
 <script>
 	let square = document.getElementById('centerThis');
+	let container = document.getElementById('container');
 	let t = '300px';
 	let l = '300px';
+	let colorIndex = 4;
+	let colorArray = ['#40e0d0', '#ffa500', '#9a9a9a', '#1e90ff', '#d2f8d2']
 
 	function moveUp() {
 		console.log('up');
@@ -68,10 +70,40 @@
 		square.style.left = l;
 	}
 
+	function turnYellow() {
+		square.style.backgroundColor ="yellow";
+	}
+
+	function turnRed() {
+		square.style.backgroundColor ="red";
+	}
+
+	function turnPurple() {
+		square.style.backgroundColor ="purple";
+	}
+
+	function cycleBackgroundColor() {
+		if(colorIndex ===4) colorIndex = 0;
+		else(colorIndex ++);
+		container.style.backgroundColor = colorArray[colorIndex];
+	}
+
 	let body = document.body;
 	body.addEventListener('keydown', function(event) {
 		console.log(event.keyCode);
 		switch(event.keyCode) {
+			case 89 :
+				turnYellow();
+				break;
+			case 82 :
+				turnRed();
+				break;
+			case 80 :
+				turnPurple();
+				break;
+			case 32 :
+				cycleBackgroundColor();
+				break;
 			case 38 :
 				moveUp();
 				break;
