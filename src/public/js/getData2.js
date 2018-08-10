@@ -1,8 +1,9 @@
 
 const dataOutputButton = document.getElementById('dataOutputButton');
 const dataOutputButtonTable = document.getElementById('dataOutputButtonTable');
-const dataOutputDiv = document.getElementById('dataOutput');
 const dataPostButton = document.getElementById('dataPost');
+
+const dataOutputDiv = document.getElementById('dataOutput');
 
 let toggle = true;
 let toggle2 = true;

@@ -13,13 +13,13 @@ div.container {
 }
 
 div.left-nav-container {
-	width:60%;
+	width:70%;
 	height: 100px;
 	float:left;
 }
 
 div.right-nav-container {
-	width:30%;
+	width:20%;
 	height: 100px;
 	float:left;
 }

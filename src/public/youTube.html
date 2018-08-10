@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset=utf-8 />
+<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="styles/style.css" />
+<script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+<style>
+  #mainVidScreen {
+    float:left;
+    width:35%;
+  }
+  #videoList {
+  	width:60%;
+    float:left;
+  }
+	.iframeClass {
+		/* width: 400px;
+		height: 400px; */
+		border: 2px solid green;
+		float: left;
+	}
+	.selectableVids {
+		border: 2px solid #bcf5bc;
+		margin-bottom: 5px;
+	}
+	.selectableVids:hover {
+		box-shadow: 0 0 4px green;
+	}
+
+</style>
+<title>JS DOM paragraph style</title>
+</head>
+<body>
+	<h1 class="test">
+		This is Madeleine's Awesome Fucking HTML and CSS <span id="homeSpan">youTube</span> page!!!
+	</h1>
+	<nav>
+		<div class="left-nav-container">
+			<ul>
+				<li><a href="index.html">home</a></li>
+				<li><a href="lists.html">lists</a></li>
+				<li><a href="jquery.html">jquery</a></li>
+				<li><a href="forms.html">forms</a></li>
+				<li><a href="forms2.html">forms2</a></li>
+				<li><a href="forms3.html">forms3</a></li>
+				<li><a href="getData2.html">getData</a></li>
+        <li><a href="trucks.html">trucks</a></li>
+        <li><a href="pokemon.html">pokemon</a></li>
+
+			</ul>
+		</div>
+		<div class="right-nav-container">
+
+		</div>
+	</nav>
+
+  <div class="container"></div>
+	<h3>Type into search bar to search for videos</h3>
+	<input id="videoSearch" class="searchInput" type="search"/>
+	<label for"videoSearch">filter videos</label>
+  <div id="videoContainer">
+		<br />
+		<div id="mainVidScreen"></div>
+		<div id="videoList">
+
+    </div>
+
+	</div>
+	<script type="text/javascript" src="js/youTube.js"></script>
+</body>
+</html>
