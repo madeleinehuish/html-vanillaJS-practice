@@ -1,18 +1,13 @@
-const API_KEY = 'AIzaSyACaJJh05-lMN9DbO0cvnorV5sKFyO91TM';
-const ROOT_URL = 'https://www.googleapis.com/youtube/v3/search';
+
 
 const videoSearchBar = document.getElementById('videoSearch');
 const videoListDiv = document.getElementById('videoList');
 const mainVidScreen = document.getElementById('mainVidScreen');
-// let selectableVideos = document.getElementsByClass('selectableVids');
-let currentSelected = '';
 
 document.addEventListener("DOMContentLoaded", function(){
   const params = `?part=snippet&key=${API_KEY}&q=javascript&type=video`;
   getVideos('javascript', params);
 }, false)
-
-
 
 videoSearchBar.addEventListener('input', event => {
   // console.log('event.target.value SearchBar: ', event.target.value);
@@ -61,16 +56,11 @@ function constructVideoList(data) {
 }
 
 function updateSelectedVideo(id) {
-  // currentSelected = video;
-  // console.log('current selected: ', currentSelected);
 
-  // const videoId = video.id.videoId;
   const url = `https://www.youtube.com/embed/${id}`;
   const height = '360px';
   const width = '480px';
 
-
   let mainVid = `<iframe height=${height} width=${width} class="iframeClass" src=${url}></iframe>`;
   mainVidScreen.innerHTML = mainVid;
-
 }
