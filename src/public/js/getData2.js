@@ -110,6 +110,24 @@ function postData() {
     }
 	}
 	xhr.send(JSON.stringify(dataObject));
+
+
+
+
+	//   (async () => {
+	//   const rawResponse = await fetch('/you_tube_server', {
+	//     method: 'POST',
+	//     headers: {
+	//       'Accept': 'application/json',
+	//       'Content-Type': 'application/json'
+	//     },
+	//     body: JSON.stringify({a: 1, b: 'Textual content'})
+	//   });
+	//   const content = await rawResponse;
+	//   // const content = await rawResponse.json();
+	//
+	//   console.log(content);
+	// })();
 }
 
 // //this example posts data through fetch
