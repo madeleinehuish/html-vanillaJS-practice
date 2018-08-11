@@ -6,6 +6,10 @@
 const videoSearchBar = document.getElementById('videoSearch');
 const videoListDiv = document.getElementById('videoList');
 const mainVidScreen = document.getElementById('mainVidScreen');
+const vidButton = document.getElementById('vidButton');
+const body = document.body;
+
+let videoQueue = [];
 
 
 document.addEventListener("DOMContentLoaded", function(){
@@ -29,13 +33,28 @@ mainVidScreen.addEventListener('mouseout', function() {
     })
   }, 35);
 
+// //this version allows for instantaneous search...
+// videoSearchBar.addEventListener('input', event => {
+//
+//   const term = event.target.value || 'javascript';
+//
+//   if(term!=='') getVideos(term);
+//
+// }, false)
+vidButton.addEventListener('click', event => {
 
-videoSearchBar.addEventListener('input', event => {
-
-  const term = event.target.value || 'javascript';
+  const term = videoSearchBar.value || 'javascript';
 
   if(term!=='') getVideos(term);
+}, false)
 
+body.addEventListener('keydown', event => {
+
+  if(event.keyCode === 13) {
+    const term = videoSearchBar.value || 'javascript';
+
+    if(term!=='') getVideos(term);
+  }
 }, false)
 
 
@@ -62,13 +81,23 @@ function constructVideoList(data) {
   let videoList = '';
   for(let elem of data.items) {
 
-    let vidThumbnail = `<div width="100%" data-id="${elem.id.videoId}" style="background-color: #ecf5f3; margin-left: 10px; text-align:right; margin-right:10px;" class="selectableVids">
-                          ${elem.snippet.title}
-                          <img width="120px" height="90px" src='${elem.snippet.thumbnails.default.url}'/>
+    let vidThumbnail = `<div width="100%" data-id="${elem.id.videoId}" style="background-color: #ecf5f3; margin-left: 10px; margin-right:10px;" class="selectableVids">
+                          <span style="cursor: pointer; position:relative;top:32px; font-size:large; left: 20px; text-align:center;height:30px; width:30px; border: 2px solid #bcf5bc; float:left"; ><b class="addToQueue" data-id="${elem.id.videoId}">+</b></span>
+                          <div style="text-align:right">${elem.snippet.title}
+                                <img width="120px" height="90px" src='${elem.snippet.thumbnails.default.url}'/>
+                          </div>
                         </div>`;
     videoList += vidThumbnail;
   }
   videoListDiv.innerHTML = videoList;
+
+  let addToQueueElements = document.getElementsByClassName('addToQueue');
+  for(let elem of addToQueueElements) {
+    elem.addEventListener('click', function(event) {
+      console.log('event.target: ', event.target)
+      addToQueue(event.target.dataset.id);
+    })
+  }
 
   for(let elem of videoListDiv.children) {
 
@@ -79,6 +108,11 @@ function constructVideoList(data) {
   }
 }
 
+function addToQueue(id) {
+  console.log('id: ', id)
+  videoQueue.push(id);
+  console.log('queue changed: ', videoQueue);
+}
 
 function updateSelectedVideo(id) {
 
