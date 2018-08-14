@@ -2,40 +2,60 @@
 const dataOutputButton = document.getElementById('dataOutputButton');
 const dataOutputButtonTable = document.getElementById('dataOutputButtonTable');
 const dataPostButton = document.getElementById('dataPost');
+const dataOutputButtonTextButton = document.getElementById('dataOutputButtonText');
 
 const dataOutputDiv = document.getElementById('dataOutput');
 
 let toggle = true;
 let toggle2 = true;
 
-dataOutputButton.addEventListener('click', function() {
-	if(toggle) {
-		getData('list');
-		toggle = !toggle;
-	} else {
-		resetData();
-		toggle = !toggle;
+//this example shows many different uses of XHR object
+const loadText = () => {
+	//create XHR Object
+	const xhr = new XMLHttpRequest();
+	//OPEN- type, url/file, async
+	xhr.open('GET', 'js/tools/sampleText.txt', true);
+
+	// // // old way of doing things : onreadystatechange
+	// // // readyState values
+	// // // 0: request not initialized
+	// // // 1: server connection established
+	// // // 2: request received
+	// // // 3: processing input
+	// // // 4: request finished and response is ready
+	// console.log('readyState: ', xhr.readyState);
+	// xhr.onreadystatechange = () => {
+	// 	console.log('readyState: ', xhr.readyState);
+	// 	if(xhr.readyState === 4 && xhr.status === 200) {
+	// 		dataOutputDiv.innerHTML = xhr.responseText;
+	// 	}
+	// }
+
+	// // // // can use onprogress for using xhr during stage 3 of readyState (during load)
+	// xhr.onprogress = () => {
+	// 	console.log('readyState: ', xhr.readyState);
+	// 	//so for example could put something like
+	// 	if(xhr.readyState === 3) {
+	// 		//do something here
+	// 	}
+	// }
+
+	//onload is the newer way of doing things. goes right from readyState1 to readyState4, skipping 2 and 3
+	xhr.onload = () => {
+	 console.log('readyState: ', xhr.readyState);
+		if(xhr.status === 200) {
+			dataOutputDiv.innerHTML = xhr.responseText;
+		} else if(xhr.status === 404) console.log('404 : not found') //this is just an example of checking for other statuses
 	}
-}, false);
 
-dataOutputButtonTable.addEventListener('click', function() {
-	if(toggle2) {
-		getData('table');
-		toggle2 = !toggle2;
-	} else {
-		resetData();
-		toggle2 = !toggle2;
-	}
-}, false);
+	// // // error handling
+	// xhr.onerror = () => {
+	// 	console.log('error...')
+	// }
+	xhr.send();
+}
 
-dataPostButton.addEventListener('click', function() {
-	postData();
-}, false);
-
-
-// let data = [];
-
-function getData(outputType) {
+const getData = outputType => {
 	let xhr = new XMLHttpRequest();
 	xhr.onload = () => {
 		if(xhr.status===200) {
@@ -53,7 +73,7 @@ function getData(outputType) {
 	xhr.send(null);
 }
 
-function dataToList(data) {
+const dataToList = data => {
 	resetData();
 	let dataUL = document.createElement('ul');
 	dataUL.id = 'dataUL';
@@ -66,7 +86,7 @@ function dataToList(data) {
 	dataOutputDiv.appendChild(dataUL);
 }
 
-function dataToTable(data) {
+const dataToTable = data => {
 	resetData();
 	let table = document.createElement('table');
 	table.id = 'dataTable';
@@ -92,12 +112,8 @@ function dataToTable(data) {
 	dataOutputDiv.appendChild(table)
 }
 
-function resetData() {
-	dataOutputDiv.innerHTML = '';
-}
-
 //this example posts data as json through XMLHttpRequest
-function postData() {
+const postData = () => {
 	let xhr = new XMLHttpRequest();
 	let url = 'forms';
 	let dataObject = { name:"Madeleine", time:"2pm" };
@@ -110,6 +126,61 @@ function postData() {
     }
 	}
 	xhr.send(JSON.stringify(dataObject));
+}
+
+const resetData = () => {
+	dataOutputDiv.innerHTML = '';
+}
+
+
+//event listeners
+
+dataOutputButton.addEventListener('click', function() {
+	if(toggle) {
+		getData('list');
+		toggle = !toggle;
+	} else {
+		resetData();
+		toggle = !toggle;
+	}
+}, false);
+
+dataOutputButtonTable.addEventListener('click', function() {
+	if(toggle2) {
+		getData('table');
+		toggle2 = !toggle2;
+	} else {
+		resetData();
+		toggle2 = !toggle2;
+	}
+}, false);
+
+dataPostButton.addEventListener('click', function() {
+	postData();
+}, false);
+
+dataOutputButtonTextButton.addEventListener('click', function() {
+	if(toggle2) {
+		loadText();
+		toggle2 =!toggle2;
+	} else {
+		resetData();
+		toggle2 = !toggle2;
+	}
+}, false);
+
+
+// let data = [];
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -128,7 +199,7 @@ function postData() {
 	//
 	//   console.log(content);
 	// })();
-}
+
 
 // //this example posts data through fetch
 // //there is one problem: response data from server is not coming back...

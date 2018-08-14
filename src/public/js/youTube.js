@@ -14,7 +14,7 @@ let videoQueue = [];
 
 document.addEventListener("DOMContentLoaded", function(){
 
-  getVideos('javascript');
+  getVideos('vanilla js');
 
 }, false)
 
@@ -29,7 +29,7 @@ mainVidScreen.addEventListener('mouseover', function() {
 mainVidScreen.addEventListener('mouseout', function() {
   const vidFrame = document.getElementById('vidFrame');
   setTimeout(() => {
-      vidFrame.style = 'position:static; width:480px; height:360px;';
+      vidFrame.style = 'position:static; width:480px; height:360px;'; //try 40% with right margin // width:480px; height:360px;
     })
   }, 35);
 
@@ -43,7 +43,7 @@ mainVidScreen.addEventListener('mouseout', function() {
 // }, false)
 vidButton.addEventListener('click', event => {
 
-  const term = videoSearchBar.value || 'javascript';
+  const term = videoSearchBar.value || 'vanilla js';
 
   if(term!=='') getVideos(term);
 }, false)
@@ -51,21 +51,22 @@ vidButton.addEventListener('click', event => {
 body.addEventListener('keydown', event => {
 
   if(event.keyCode === 13) {
-    const term = videoSearchBar.value || 'javascript';
+    const term = videoSearchBar.value || 'vanilla js';
 
     if(term!=='') getVideos(term);
   }
 }, false)
 
-
+//call to youtube for videos using fetch API
 async function getVideos(term) {
   //get api key and url
   const res = await fetch('/getKey');
   const json = await res.json();
   let params = `?part=snippet&key=${json.API_KEY}&q=${term}&maxResults=50&type=video`;
+  let queryUrl = json.ROOT_URL + params;
 
-  //call to youtube for videos
-  const res2 = await fetch(json.ROOT_URL + params);
+  //call to youtube for videos using fetch API
+  const res2 = await fetch(queryUrl);
   const json2 = await res2.json();
 
   // console.log("return data from youtube: ", json);
@@ -76,14 +77,57 @@ async function getVideos(term) {
 
 }
 
+// // //call to youtube for videos using XMLHttpRequest and old-school promise chaining
+// // //this will replace getVideos function above as alternate way of calling
+// function getVideos(term) {
+//   return new Promise((resolve, reject) => {
+//     const xhr = new XMLHttpRequest();
+//     let json;
+//     xhr.open('GET', '/getKey', true);
+//     xhr.onload = () => {
+//       if(xhr.status === 200) {
+//         let response = xhr.responseText;
+//         json = JSON.parse(response);
+//         resolve(json);
+//       } else {
+//         reject(Error(xhr.statusText));
+//       }
+//     }
+//     xhr.send();
+//   }).then(res => {
+//     let params = `?part=snippet&key=${res.API_KEY}&q=${term}&maxResults=50&type=video`;
+//     let queryUrl = res.ROOT_URL + params;
+//     let json;
+//     return new Promise((resolve, reject) => {
+//       const xhr = new XMLHttpRequest();
+//       xhr.open('GET', queryUrl, true);
+//       xhr.onload = () => {
+//         if(xhr.status === 200) {
+//           let response = xhr.responseText;
+//           json = JSON.parse(response);
+//           resolve(json);
+//         } else {
+//           reject(Error(xhr.statusText));
+//         }
+//       }
+//       xhr.send();
+//     })
+//   }).then(res2 => {
+//     console.log('res: ', res2);
+//     videoListDiv.innerHTML = '';
+//     constructVideoList(res2);
+//     updateSelectedVideo(res2.items[0].id.videoId);
+//   })
+// }
+
 
 function constructVideoList(data) {
   let videoList = '';
   for(let elem of data.items) {
 
-    let vidThumbnail = `<div width="100%" data-id="${elem.id.videoId}" style="background-color: #ecf5f3; margin-left: 10px; margin-right:10px;" class="selectableVids">
-                          <span style="cursor: pointer; position:relative;top:32px; font-size:large; left: 20px; text-align:center;height:30px; width:30px; border: 2px solid #bcf5bc; float:left"; ><b class="addToQueue" data-id="${elem.id.videoId}">+</b></span>
-                          <div style="text-align:right">${elem.snippet.title}
+    let vidThumbnail = `<div width="100% style=" margin-left: 10px; margin-right:10px;" class="selectableVids">
+                          <span class="queueSpan" style="cursor: pointer; position:relative;top:32px; font-size:large; left: 20px; text-align:center;height:30px; width:30px; border: 2px solid #bcf5bc; float:left"; ><b class="addToQueue" data-id="${elem.id.videoId}">+</b></span>
+                          <div data-id="${elem.id.videoId}" style="cursor:pointer;text-align:right;background-color: #ecf5f3;">${elem.snippet.title}
                                 <img width="120px" height="90px" src='${elem.snippet.thumbnails.default.url}'/>
                           </div>
                         </div>`;
@@ -94,16 +138,22 @@ function constructVideoList(data) {
   let addToQueueElements = document.getElementsByClassName('addToQueue');
   for(let elem of addToQueueElements) {
     elem.addEventListener('click', function(event) {
-      console.log('event.target: ', event.target)
+      //this part stops event propagation when b is clicked
+      if (!e) var e = window.event;
+      e.cancelBubble = true;
+      if (e.stopPropagation) e.stopPropagation();
+      /////
+      console.log('event.target: ', event.target);
       addToQueue(event.target.dataset.id);
     })
   }
 
   for(let elem of videoListDiv.children) {
-
+    console.log('inside of constructVideoList, elem: ', elem);
     elem.addEventListener('click', function(event) {
+      console.log('event.target: ', event.target);
       updateSelectedVideo(event.target.dataset.id)
-
+      console.log('inside of constructVideoList, event.target.dataset.id: ', event.target.dataset.id);
     }, false);
   }
 }
@@ -115,7 +165,7 @@ function addToQueue(id) {
 }
 
 function updateSelectedVideo(id) {
-
+  console.log('in updateSelectedVideo, id: ', id);
   const url = `https://www.youtube.com/embed/${id}`;
   const height = '360px'; //360px 720px
   const width = '480px';  //480px 960px

@@ -40,6 +40,7 @@
   }
   #mainViewport {
     margin-left: 500px;
+    /* border: 2px solid #90ee90; */
   }
 
 </style>
@@ -52,9 +53,14 @@
 				<li><a href="index.html">home</a></li>
 				<li><a href="lists.html">lists</a></li>
 				<li><a href="jquery.html">jquery</a></li>
-				<li><a href="forms.html">forms</a></li>
-				<li><a href="forms2.html">forms2</a></li>
-				<li><a href="forms3.html">forms3</a></li>
+        <li id="dropDown" class="dropdown">
+					<ul style="padding:0;">
+						<li class="innerList"><a href="forms.html">forms</a></li>
+						<li class="innerList"><a href="forms2.html">forms2</a></li>
+						<li class="innerList"><a href="forms3.html">forms3</a></li>
+					</ul>
+				</li>
+				<li id="dropDownTrigger"><a href="#">forms</a></li>
         <li><a href="youTube.html">youTube</a></li>
 				<li><a href="getData2.html">getData</a></li>
         <li><a href="trucks.html">trucks</a></li>
@@ -98,5 +104,6 @@
 	</div>
 
 	<script type="text/javascript" src="js/pokemon.js"></script>
+  <script type="text/javascript" src="js/dropdown.js"></script>
 </body>
 </html>

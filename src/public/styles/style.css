@@ -8,6 +8,37 @@ h1.test {
 	margin-left:30px;
 }
 
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	/* color: #4d004d; */
+	text-shadow: 0 1px 1px;
+}
+
+a:visited {
+	color:none;
+}
+
+.dropdown {
+	display:none;
+	/*  76.23 x 29 */
+	height:100px;
+	width: 76.23px;
+	position:absolute;
+	top:60px;
+	border: 2px solid #bcf5bc;
+	background-color: #dbece8
+}
+#dropDownTrigger {
+	position:relative;
+}
+.innerList{
+	font-size: 20px;
+	line-height:1.5;
+}
+
 div.container {
 	width: 100%;
 }

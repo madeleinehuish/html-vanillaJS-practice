@@ -13,8 +13,15 @@
 				<li><a href="index.html">home</a></li>
 				<li><a href="lists.html">lists</a></li>
 				<li><a href="jquery.html">jquery</a></li>
-				<li><a href="forms2.html">forms2</a></li>
-				<li><a href="forms3.html">forms3</a></li>
+				<!-- <li><a href="forms2.html">forms2</a></li>
+				<li><a href="forms3.html">forms3</a></li> -->
+				<li id="dropDown" class="dropdown">
+					<ul style="padding:0;">
+						<li class="innerList"><a href="forms2.html">forms2</a></li>
+						<li class="innerList"><a href="forms3.html">forms3</a></li>
+					</ul>
+				</li>
+				<li id="dropDownTrigger"><a href="#">forms</a></li>
 				<li><a href="youTube.html">youTube</a></li>
 				<li><a href="getData2.html">getData</a></li>
 				<li><a href="trucks.html">trucks</a></li>
@@ -39,9 +46,9 @@
 	</div>
 	<br />
 	<div class="form-container">
-		<h3>Awesome Form</h3>
+		<h3>Awesome Forms</h3>
 		<form action="/forms" method="post">
-		<!-- <form> -->
+		<h3>regular form</h3>
 			<fieldset>
 				<div>
 					<label for="name" class="title">Name:</label>
@@ -64,14 +71,65 @@
 				</div>
 			</fieldset>
 		</form>
-		<!-- <div>
-			<p id="formMessage"></p>
-		</div>
-		<div>
-			<iframe name="frame" style="display:none"></iframe>
-		</div> -->
+
+		<form id="postForm">
+		<h3>post form with xmlHTTP</h3>
+			<fieldset>
+				<div>
+					<label for="name2" class="title">Name:</label>
+					<input type="text" id="name2" name="name" />
+				</div>
+				<div>
+					<label for="email2" class="title">Email:</label>
+					<input type="email" id="email2" name="email" />
+				</div>
+				<div class="radio-buttons">
+					<span class="title">Gender:</span>
+					<input type="radio" name="gender" id="male2" value="M" />
+					<label for="male2">M</label>
+					<input type="radio" name="gender" id="female2" value="F" />
+					<label for="female2">F</label><br />
+				</div>
+				<div class="submit">
+					<input type="submit" value="Register" id="submitF2" />
+					<!-- <button value="Register" id="submitF" /> -->
+				</div>
+			</fieldset>
+		</form>
 
 	</div>
 	<script type="text/javascript" src="js/index.js"></script>
+	<script>
+		let form = document.getElementById('postForm');
+		let nameInForm = document.getElementById('name2');
+		let emailInForm = document.getElementById('email2');
+		let genderInForm = document.getElementsByName('gender');
+
+
+		form.addEventListener('submit', function() {
+			let name = nameInForm.value;
+			let email = emailInForm.value;
+			let gender = '';
+			for(let selection of genderInForm) {
+				if (selection.checked) gender = selection.value;
+			}
+			let sendObject = { name, email, gender };
+			postData(sendObject);
+		}, true);
+
+		function postData(data) {
+			let xhr = new XMLHttpRequest();
+			xhr.open('POST', '/forms', true);
+			xhr.setRequestHeader('Content-Type', 'application/json')
+			xhr.onreadystatechange = () => {
+				if(xhr.readyState === 4 && xhr.status === 200) {
+					console.log('form response: ', xhr.responseText);
+				}
+			}
+			xhr.send(JSON.stringify(data));
+		}
+
+	</script>
+	<script type="text/javascript" src="js/dropdown.js"></script>
 </body>
 </html>

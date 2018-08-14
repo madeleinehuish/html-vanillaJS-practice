@@ -4,6 +4,12 @@
 <meta charset=utf-8 />
 <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
 <link rel="stylesheet" type="text/css" href="styles/style.css" />
+<style>
+
+
+
+
+</style>
 <script
   src="https://code.jquery.com/jquery-3.3.1.min.js"
   integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
@@ -11,18 +17,23 @@
 <title>JS DOM paragraph style</title>
 </head>
 <body>
-	<h1 class="test">
+	<!-- <h1 class="test">
 		Madeleine's Vanilla JS <span id="homeSpan">Home</span> Page
-	</h1>
+	</h1> -->
 	<nav>
 		<div class="left-nav-container">
 			<ul>
 				<!-- <li><a href="https://www.google.com">google</a></li> -->
 				<li><a href="lists.html">lists</a></li>
 				<li><a href="jquery.html">jquery</a></li>
-				<li><a href="forms.html">forms</a></li>
-				<li><a href="forms2.html">forms2</a></li>
-				<li><a href="forms3.html">forms3</a></li>
+        <li id="dropDown" class="dropdown">
+					<ul style="padding:0;">
+						<li class="innerList"><a href="forms.html">forms</a></li>
+						<li class="innerList"><a href="forms2.html">forms2</a></li>
+						<li class="innerList"><a href="forms3.html">forms3</a></li>
+					</ul>
+				</li>
+				<li id="dropDownTrigger"><a href="#">forms</a></li>
         <li><a href="youTube.html">youTube</a></li>
 				<li><a href="getData2.html">getData</a></li>
         <li><a href="trucks.html">trucks</a></li>
@@ -101,5 +112,6 @@
 		<small>Small</small>
 	</div>
 	<script type="text/javascript" src="js/index.js"></script>
+  <script type="text/javascript" src="js/dropdown.js"></script>
 </body>
 </html>

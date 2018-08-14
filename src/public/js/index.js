@@ -14,10 +14,10 @@ for(let column of tableColumns) {
 	column.addEventListener('mouseout', hoverExit, false);
 }
 
-clearButton.addEventListener('click', clear, false);
+if(clearButton) clearButton.addEventListener('click', clear, false);
 // submitButton.addEventListener('click', submit, false);
 
-searchInput.addEventListener('input', event => {
+if(searchInput) searchInput.addEventListener('input', event => {
 	console.log('searchInput: ',event.target.value);
 	let inputContainer = document.getElementById('testInput');
 	inputContainer.innerHTML = '<div>' + event.target.value + '</div>';
@@ -25,7 +25,7 @@ searchInput.addEventListener('input', event => {
 	inputContainer.className = 'testInputClass';
 }, false);
 
-tableInput.addEventListener('input', event => {
+if(tableInput) tableInput.addEventListener('input', event => {
 	console.log('tableInput: ',event.target.value);
 	if(event.target.value==='') {
 		for(let td of tableElems) {
