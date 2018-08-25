@@ -3,6 +3,12 @@ const dataOutputButton = document.getElementById('dataOutputButton');
 const dataOutputButtonTable = document.getElementById('dataOutputButtonTable');
 const dataPostButton = document.getElementById('dataPost');
 const dataOutputButtonTextButton = document.getElementById('dataOutputButtonText');
+const todoListButton = document.getElementById('todoListButton');
+const modal = document.querySelector('.modal');
+const modalTrigger = document.getElementById('modalButton');
+const closeModalButton = document.querySelector('.close-modal-button');
+
+// console.log('closeModalButton', closeModalButton);
 
 const dataOutputDiv = document.getElementById('dataOutput');
 
@@ -73,6 +79,13 @@ const getData = outputType => {
 	xhr.send(null);
 }
 
+const dataOutput = data => {
+	dataOutputDiv.style = {
+
+	}
+	dataOutputDiv.appendChild(data);
+}
+
 const dataToList = data => {
 	resetData();
 	let dataUL = document.createElement('ul');
@@ -83,7 +96,8 @@ const dataToList = data => {
 		dataList += `<li>id: ${elem.id}, userId: ${elem.userId}, title: ${elem.title}</li></br>`
 	}
 	dataUL.innerHTML = dataList;
-	dataOutputDiv.appendChild(dataUL);
+		// dataOutputDiv.appendChild(dataUL);
+	dataOutput(dataUL);
 }
 
 const dataToTable = data => {
@@ -132,6 +146,17 @@ const resetData = () => {
 	dataOutputDiv.innerHTML = '';
 }
 
+const toggleModal = () => {
+	console.log('show modal button clicked')
+	modal.classList.toggle('show-modal');
+}
+
+const windowOnClick = event => {
+	if(event.target === modal) {
+		toggleModal();
+	}
+}
+
 
 //event listeners
 
@@ -169,6 +194,11 @@ dataOutputButtonTextButton.addEventListener('click', function() {
 	}
 }, false);
 
+modalTrigger.addEventListener('click', toggleModal, false);
+
+closeModalButton.addEventListener('click', toggleModal);
+
+window.addEventListener('click', windowOnClick);
 
 // let data = [];
 

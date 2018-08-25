@@ -15,20 +15,18 @@ for(let column of tableColumns) {
 }
 
 if(clearButton) clearButton.addEventListener('click', clear, false);
-// submitButton.addEventListener('click', submit, false);
 
 if(searchInput) searchInput.addEventListener('input', event => {
 	console.log('searchInput: ',event.target.value);
 	let inputContainer = document.getElementById('testInput');
 	inputContainer.innerHTML = '<div>' + event.target.value + '</div>';
-	// inputContainer.style.border = '2px solid black'
 	inputContainer.className = 'testInputClass';
 }, false);
 
 if(tableInput) tableInput.addEventListener('input', event => {
 	console.log('tableInput: ',event.target.value);
 	if(event.target.value==='') {
-		for(let td of tableElems) {
+		for(let td of tableColumns) {
 			console.log('row: ', td);
 			td.style.backgroundColor = '#ecf5f3';
 		}
@@ -49,14 +47,7 @@ if(tableInput) tableInput.addEventListener('input', event => {
 
 			let foundElem = tableBody.children[foundParent].children[from-1];
 			foundElem.style.backgroundColor = 'green';
-			// console.log('foundElem', foundElem);
-			// let chosenTableElement = Array.from(tableBody.children)
-			// 															.map((element, index) => ({element, index}))
-			// console.log(chosenTableElement)
 	}
-
-
-
 })
 
 function hover(e) {
@@ -87,11 +78,6 @@ function clear() {
 	}
 	tableInput.value = '';
 }
-
-// function submit() {
-// 	// console.log('event: ', event);
-// 	console.log('submit')
-// }
 
 
 //1. find nth element from search bar

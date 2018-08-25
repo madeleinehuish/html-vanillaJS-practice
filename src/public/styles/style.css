@@ -3,17 +3,12 @@ body {
 	background-color:#ecf5f3;
 }
 
-h1.test {
-	color: purple;
-	margin-left:30px;
-}
-
+/* links */
 a {
 	text-decoration: none;
 }
 
 a:hover {
-	/* color: #4d004d; */
 	text-shadow: 0 1px 1px;
 }
 
@@ -21,17 +16,19 @@ a:visited {
 	color:none;
 }
 
-.dropdown {
+/* drop down  */
+.dropDown {
 	display:none;
 	/*  76.23 x 29 */
 	height:100px;
-	width: 76.23px;
+	/* width: 76.23px; */
+	width: 90px;
 	position:absolute;
 	top:60px;
 	border: 2px solid #bcf5bc;
 	background-color: #dbece8
 }
-#dropDownTrigger {
+.dropDownTrigger {
 	position:relative;
 }
 .innerList{
@@ -39,6 +36,7 @@ a:visited {
 	line-height:1.5;
 }
 
+/* containers */
 div.container {
 	width: 100%;
 }
@@ -53,33 +51,6 @@ div.right-nav-container {
 	width:20%;
 	height: 100px;
 	float:left;
-}
-
-ul {
-	text-align: center;
-}
-
-
-form {
-	margin-top: 20px;
-}
-
-label {
-	font-size: 24px;
-	padding-top:3px;
-}
-
-li {
-	display:inline;
-	font-size:24px;
-	margin-right: 20px;
-}
-
-input.searchInput {
-	/* display: inline; */
-	height: 28px;
-	padding-bottom: 3px;
-
 }
 
 .container, .container2 {
@@ -117,76 +88,41 @@ input.searchInput {
 	text-align: center;
 }
 
-div.table-container, div.modal, div.img-container, div#openModalContainer, div#startOverButtonContainer, .col2 {
+/* forms and lists */
+form {
+	margin-top: 20px;
+}
+
+label {
+	font-size: 24px;
+	padding-top:3px;
+}
+
+ul {
 	text-align: center;
 }
 
-table {
-	margin-right: auto;
-	margin-left: auto;
+li {
+	display:inline;
+	font-size:24px;
+	margin-right: 20px;
 }
 
-table, th, td {
-	border-style: solid;
-	border-color: black;
-	border-width:2px;
+input.searchInput {
+	height: 28px;
+	padding-bottom: 3px;
+
 }
 
-td {
-	text-align:center;
-	width: 120px;
-	height:40px;
-	cursor: pointer;
+/* miscellaneous */
+div.table-container, div.form-container, div.modal, div.img-container, div#openModalContainer, div#startOverButtonContainer, .col2 {
+	text-align: center;
 }
-
-
 
 button {
 	cursor: pointer;
 }
 
-form {
-	display: inline-block;
-}
-div.form-container {
-	text-align: center;
-}
-/* fieldset {
-	font-size:12px;
-	text-align: left;
-} */
-/* .formClass {
-	width: 800px;
-	height: 800px;
-} */
-.formTitle {
-	float: left;
-	width: 100px;
-	text-align:right;
-	padding-right: 10px;
-}
-
-.testInputClass {
-	color: purple;
-}
-
 #homeSpan {
 	color:#b947d1;
-}
-
-.modal, #startOverButtonContainer {
-	display: none;
-}
-
-#tableInput {
-	margin-bottom: 10px;
-	padding-top: 5px;
-}
-
-#table15 {
-	/* font-size: 11px; */
-}
-
-.truckDiv ul li {
-	text-align:left;
 }

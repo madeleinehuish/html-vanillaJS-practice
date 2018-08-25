@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Madeleine's Cool Practice Site</title>
+	<meta name="description" content="building stuff on the day of my interview :)"/>
+	<link rel="stylesheet" type="text/css" href="styles/style.css" />
+	<style>
+		.mainDiv {
+			background-color: pink;
+			border: 1px solid grey;
+		}
+		.mainDivNoColor {
+			border: 1px solid grey;
+		}
+		.mainSpan {
+			background-color: green;
+		}
+		.mainSpan2 {
+			background-color: grey;
+			display: inline-block;
+			height: 40px;
+		}
+		.floated {
+			float: left;
+		}
+
+		#leftDiv {
+			float:left;
+			width:150px;
+			height:150px;
+			margin:0 10px;
+			background-color:yellow;
+		}
+
+		#rightDiv {
+			float:left;
+			width:150px;
+			height:150px;
+			padding:20px;
+			margin:0 10px;
+			background-color:yellow;
+		}
+		#farRightDiv {
+			float:right;
+			width:150px;
+			height:150px;
+			padding:20px;
+			margin:0 10px;
+			background-color:orange;
+		}
+		.clearFix {
+			clear:both;
+			background-color: pink;
+		}
+		footer {
+			clear:both;
+			background-color:blue;
+			color:white;
+		}
+		.centerThisText {
+			text-align:center;
+			color:white;
+			background-color:green;
+		}
+		.centerThisDiv {
+			margin: 0 auto;
+			color:white;
+			width: 200px;
+			background-color:purple;
+		}
+		.centerVerticallyAndHorizontally {
+			/* text-align:center; */
+			/* padding: 50% 0; */
+			background-color:green;
+			color:white;
+			height:200px;
+			width:200px;
+			margin: 0 auto;
+			/* vertical-align: middle; */
+
+			/* height: 300px;
+			width: 300px; */
+		}
+		.centerMe{
+			text-align:center;
+			padding-top:60px;
+			/* padding: 50% 0; */
+		}
+		.container {
+			height: 400px;
+			width:400px;
+			margin:0 auto;
+			background-color: red;
+			position:relative;
+		}
+		.center {
+			  position: absolute;
+				left: 50%;
+			  top: 50%;
+			  background-color: purple;
+				color:white;
+			  transform: translate(-50%, -50%);
+
+			  /*
+			  Not even necessary really.
+			  e.g. Height could be left out!
+			  */
+			  width: 40%;
+			  height: 100px;
+				line-height:100px;
+				text-align:center;
+				/* padding-top:40px; */
+			}
+			.center-text-trick {
+			  height: 100px;
+			  line-height: 100px;
+			  white-space: nowrap;
+				width: 400px;
+				text-align:center;
+				background-color:black;
+				color:white;
+				margin:0 auto;
+
+			}
+
+			.flex-center {
+				width: 240px;
+			  margin: 20px auto 0 auto;
+			  background: black;
+			  color: white;
+			  border: 10px solid white;
+			  display: flex;
+			  flex-direction: column;
+			  justify-content: center;
+			  height: 200px;
+			  /* resize: vertical; */
+			  /* overflow: auto; */
+			}
+			.flex-center p {
+			  margin: 0;
+			  padding: 0 20px;
+			}
+	</style>
+</head>
+<body>
+	<header>
+		<h1>This is the Header</h1>
+	</header>
+	<nav>
+		I am the nav bar.
+	</nav>
+	<main>
+		<h3>This is the Main</h3>
+		<div class="mainDiv">
+			This is a div in the main. And <span class ="mainSpan">I'm :) </span> a span. And <span class="mainSpan2">I'm :)</span> an inline-block element! All padding and margins have been stripped so you can see more easily whats going on
+		</div>
+		<div class="mainDiv">
+			This is a div in the main. And <span class ="mainSpan">I'm :) </span> a span. Notice how without the inline-block I keep my original height.
+		</div>
+		<div class="mainDiv floated">
+			I'm another div. I have a left float. Notice how the element to my right goes right up to my content.
+		</div>
+		<div class = "mainDiv" style ="background-color: blue; color: #fff">
+			And I'm her sister div. I changed my color so you could tell us apart easier.
+		</div>
+		<div class="mainDivNoColor" id="leftDiv">
+			This div with left float will have some width and height in px....................
+		</div>
+		<div class="mainDivNoColor" id="rightDiv">
+			This div also has left float and has padding of 20px. Both of us have margin 10px.
+		</div>
+		<div class="clearFix">
+			I have a clear fix (clear:both) so I don't come up to the right of the float! If the div above me didn't have a left float it would overlap with the other.
+		</div>
+		<div id="farRightDiv">
+			I am floated to the right!!! I have right left margin of 10px and padding of 20px
+		</div>
+		<div class="clearFix">
+			I also have a clearFix so I don't go to right of the right floated div. Now lets play with some centering.
+		</div>
+		<div class="centerThisText">
+			I am a centered text content div!!!
+		</div>
+		<div class="centerThisDiv">
+			I am a centered div!!!! I need width (200px in this case) to allow this to happen otherwise I still take up full screen
+		</div>
+		<div class="centerVerticallyAndHorizontally">
+			<p class="centerMe">
+				I am centered by top padding
+			</p>
+		</div>
+		<div class="container">
+			<div class="center">
+				I am centered
+			</div>
+		</div>
+		<div class ="center-text-trick" >
+			I'm centered by line-height
+		</div>
+		<div class="flex-center">
+		  <p>I'm vertically centered multiple lines of text in a flexbox container.</p>
+		</div>
+
+	</main>
+
+	<footer>
+		<h3>This is the Footer</h3>
+	</footer>
+</body>
+</html>

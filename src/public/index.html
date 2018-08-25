@@ -4,17 +4,33 @@
 <meta charset=utf-8 />
 <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
 <link rel="stylesheet" type="text/css" href="styles/style.css" />
+<title>JS DOM paragraph style</title>
 <style>
 
+#tableInput {
+	margin-bottom: 10px;
+	padding-top: 5px;
+}
 
+table {
+	margin-right: auto;
+	margin-left: auto;
+}
 
+table, th, td {
+	border-style: solid;
+	border-color: black;
+	border-width:2px;
+}
+
+td {
+	text-align:center;
+	width: 120px;
+	height:40px;
+	cursor: pointer;
+}
 
 </style>
-<script
-  src="https://code.jquery.com/jquery-3.3.1.min.js"
-  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-  crossorigin="anonymous"></script>
-<title>JS DOM paragraph style</title>
 </head>
 <body>
 	<!-- <h1 class="test">
@@ -23,32 +39,34 @@
 	<nav>
 		<div class="left-nav-container">
 			<ul>
-				<!-- <li><a href="https://www.google.com">google</a></li> -->
 				<li><a href="lists.html">lists</a></li>
 				<li><a href="jquery.html">jquery</a></li>
-        <li id="dropDown" class="dropdown">
+        <li class="dropDown">
 					<ul style="padding:0;">
 						<li class="innerList"><a href="forms.html">forms</a></li>
 						<li class="innerList"><a href="forms2.html">forms2</a></li>
 						<li class="innerList"><a href="forms3.html">forms3</a></li>
 					</ul>
 				</li>
-				<li id="dropDownTrigger"><a href="#">forms</a></li>
+				<li class="dropDownTrigger"><a href="#">forms</a></li>
         <li><a href="youTube.html">youTube</a></li>
-				<li><a href="getData2.html">getData</a></li>
+        <li class="dropDown">
+					<ul style="padding:0;">
+						<li class="innerList"><a href="getData2.html">getData1</a></li>
+						<li class="innerList"><a href="getData2.html">getData2</a></li>
+						<li class="innerList"><a href="getData3.html">getData3</a></li>
+					</ul>
+				</li>
+        <li class="dropDownTrigger"><a href="#">getData</a></li>
         <li><a href="trucks.html">trucks</a></li>
         <li><a href="pokemon.html">pokemon</a></li>
 			</ul>
 		</div>
 		<div class="right-nav-container">
-			<!-- <ul>
-				<li> -->
-				<form>
-					<label for="testInputBox">search</label>
-					<input type="search" class="searchInput" id="testInputBox" name="search" />
-				</form>
-				<!-- </li>
-			</ul> -->
+			<form>
+				<label for="testInputBox">search</label>
+				<input type="search" class="searchInput" id="testInputBox" name="search" />
+			</form>
 		</div>
 	</nav>
 	<div class="container">

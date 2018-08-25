@@ -6,6 +6,12 @@
 <link rel="stylesheet" type="text/css" href="styles/style.css" />
 
 <title>JS DOM paragraph style</title>
+<style>
+.modal, #startOverButtonContainer {
+	display: none;
+}
+
+</style>
 </head>
 <body>
 	<nav>
@@ -17,7 +23,14 @@
 				<li><a href="forms.html">forms</a></li>
 				<li><a href="forms2.html">forms2</a></li>
 				<li><a href="forms3.html">forms3</a></li>
-        <li><a href="getData2.html">getData2</a></li>
+				<li class="dropDown">
+					<ul style="padding:0;">
+						<li class="innerList"><a href="getData2.html">getData1</a></li>
+						<li class="innerList"><a href="getData2.html">getData2</a></li>
+						<li class="innerList"><a href="getData3.html">getData3</a></li>
+					</ul>
+				</li>
+        <li class="dropDownTrigger"><a href="#">getData</a></li>
         <li><a href="trucks.html">trucks</a></li>
 				<li><a href="pokemon.html">pokemon</a></li>
 			</ul>
