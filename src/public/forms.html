@@ -5,6 +5,13 @@
 <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
 <link rel="stylesheet" type="text/css" href="styles/style.css" />
 <title>forms page</title>
+<style>
+
+form.formClass {
+	display: inline-block;
+}
+
+</style>
 </head>
 <body>
 	<nav>
@@ -13,8 +20,6 @@
 				<li><a href="index.html">home</a></li>
 				<li><a href="lists.html">lists</a></li>
 				<li><a href="jquery.html">jquery</a></li>
-				<!-- <li><a href="forms2.html">forms2</a></li>
-				<li><a href="forms3.html">forms3</a></li> -->
 				<li class="dropDown">
 					<ul style="padding:0;">
 						<li class="innerList"><a href="forms2.html">forms2</a></li>
@@ -36,14 +41,10 @@
 			</ul>
 		</div>
 		<div class="right-nav-container">
-			<!-- <ul>
-				<li> -->
-				<form>
-					<label for="searchBar">search</label>
-					<input type="search" class="searchInput" id="searchBar" name="search" />
-				</form>
-				<!-- </li>
-			</ul> -->
+			<form>
+				<label for="searchBar">search</label>
+				<input type="search" class="searchInput" id="searchBar" name="search" />
+			</form>
 		</div>
 	</nav>
 	<div class="container">
@@ -54,7 +55,7 @@
 	<br />
 	<div class="form-container">
 		<h3>Awesome Forms</h3>
-		<form action="/forms" method="post">
+		<form action="/forms" method="post" class="formClass">
 		<h3>regular form</h3>
 			<fieldset>
 				<div>
@@ -74,12 +75,11 @@
 				</div>
 				<div class="submit">
 					<input type="submit" value="Register" id="submitF" />
-					<!-- <button value="Register" id="submitF" /> -->
 				</div>
 			</fieldset>
 		</form>
 
-		<form id="postForm">
+		<form id="postForm" class="formClass">
 		<h3>post form with xmlHTTP</h3>
 			<fieldset>
 				<div>
@@ -99,14 +99,13 @@
 				</div>
 				<div class="submit">
 					<input type="submit" value="Register" id="submitF2" />
-					<!-- <button value="Register" id="submitF" /> -->
 				</div>
 			</fieldset>
 		</form>
-
 	</div>
 	<script type="text/javascript" src="js/index.js"></script>
 	<script>
+
 		let form = document.getElementById('postForm');
 		let nameInForm = document.getElementById('name2');
 		let emailInForm = document.getElementById('email2');

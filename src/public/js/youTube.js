@@ -1,5 +1,5 @@
 //This page was inspired by Stephen Grider's instructional react video on Udemy
-//I decided to completely rebuild it with Vanilla JS and make the calls from server side
+//I decided to completely rebuild it with Vanilla JS
 //this version makes calls from client side with a quick get to server for api key
 
 

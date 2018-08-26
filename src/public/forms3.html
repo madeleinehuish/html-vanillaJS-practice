@@ -5,6 +5,14 @@
 <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
 <link rel="stylesheet" type="text/css" href="styles/style.css" />
 <title>forms page</title>
+<style>
+
+form.mainForm {
+	width:60%;
+	margin: 0 auto;
+}
+
+</style>
 </head>
 <body>
 	<nav>
@@ -13,13 +21,10 @@
 				<li><a href="index.html">home</a></li>
 				<li><a href="lists.html">lists</a></li>
 				<li><a href="jquery.html">jquery</a></li>
-				<!-- <li><a href="forms.html">forms</a></li>
-				<li><a href="forms2.html">forms2</a></li> -->
 				<li class="dropDown">
 					<ul style="padding:0;">
 						<li class="innerList"><a href="forms.html">forms</a></li>
 						<li class="innerList"><a href="forms2.html">forms2</a></li>
-						<!-- <li class="innerList"><a href="forms3.html">forms3</a></li> -->
 					</ul>
 				</li>
 				<li class="dropDownTrigger"><a href="#">forms</a></li>
@@ -37,14 +42,10 @@
 			</ul>
 		</div>
 		<div class="right-nav-container">
-			<!-- <ul>
-				<li> -->
-				<form>
-					<label for="searchBar">search</label>
-					<input type="search" class="searchInput" id="searchBar" name="search" />
-				</form>
-				<!-- </li>
-			</ul> -->
+			<form>
+				<label for="searchBar">search</label>
+				<input type="search" class="searchInput" id="searchBar" name="search" />
+			</form>
 		</div>
 	</nav>
 	<div class="container">
@@ -55,7 +56,7 @@
 	<div class="form-container">
 		<h4>Awesome Check Box Form (copied from MDN)</h4>
 		<!-- see https://developer.mozilla.org/en-US/docs/Learn/HTML/Forms/The_native_form_widgets -->
-		<form>
+		<form class="mainForm">
         <fieldset>
           <legend>Choose all the vegetables you like to eat</legend>
           <ul>
@@ -107,7 +108,6 @@
           </ul>
         </fieldset>
     </form>
-
 	</div>
 	<script type="text/javascript" src="js/index.js"></script>
 	<script type="text/javascript" src="js/dropdown.js"></script>

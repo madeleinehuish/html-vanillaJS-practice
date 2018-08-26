@@ -27,10 +27,19 @@ const dayCurrent = days[day];
 // //
 const truckDiv = document.getElementById('truckDiv');
 const truckButton = document.getElementById('truckButton');
+const trucksCloseButton = document.getElementById('trucksClose');
 
 truckButton.addEventListener('click', async function(){
+  truckDiv.style.display = "block";
+  trucksCloseButton.style.display = "inline";
   let trucks = await getTrucks();
   placeTrucks(trucks);
+}, false);
+
+trucksCloseButton.addEventListener('click', function() {
+  truckDiv.innerHTML = '';
+  truckDiv.style.display = "none";
+  trucksCloseButton.style.display = "none";
 }, false);
 
 function placeTrucks(trucks) {

@@ -6,9 +6,19 @@
 <link rel="stylesheet" type="text/css" href="styles/style.css" />
 <title>forms page</title>
 <style>
-.truckDiv ul li {
-	text-align:left;
+
+#truckDiv {
+	border: 2px solid #bcf5bc;
+	height: 400px;
+	overflow:scroll;
+	display: none;
+	margin-top: 10px;
 }
+
+#trucksClose {
+	display: none;
+}
+
 </style>
 </head>
 <body>
@@ -58,6 +68,7 @@
 	<div class="truck-container">
 		<h3>Push button to get list of current food trucks open in San Francisco</h3>
 		<button id="truckButton">Get Trucks</button>
+		<button id="trucksClose">Close</button>
 		<div id="truckDiv">
 
 		</div>

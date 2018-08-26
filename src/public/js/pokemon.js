@@ -31,6 +31,7 @@ function getPokemon() {
 }
 
 async function getPokemonFetch() {
+	console.log('poke button pushed, awaiting response...');
 	let response = await fetch('https://pokeapi.co/api/v2/pokemon?limit=90')
 	let json = await response.json();
 
