@@ -33,33 +33,53 @@ td {
 </style>
 </head>
 <body>
-	<!-- <h1 class="test">
-		Madeleine's Vanilla JS <span id="homeSpan">Home</span> Page
-	</h1> -->
+	<h3 id="title">Madeleine's Vanilla JS <span id="homeSpan">Home</span> Page</h3>
 	<nav>
 		<div class="left-nav-container">
 			<ul>
-				<li><a href="lists.html">lists</a></li>
-				<li><a href="jquery.html">jquery</a></li>
+				<li class="dropDownTrigger currentVisited"><a href="#">home</a></li>
+				<li class="dropDown">
+					<ul style="padding:0;">
+						<li class="innerList"><a href="pages/lists/lists.html">lists1</a></li>
+						<li class="innerList"><a href="pages/lists/lists2.html">lists2</a></li>
+						<li class="innerList"><a href="pages/lists/lists3.html">lists3</a></li>
+						<li class="innerList"><a href="pages/lists/lists4.html">lists4</a></li>
+					</ul>
+				</li>
+				<li class="dropDownTrigger"><a href="#">lists</a></li>
+				<li class="dropDown">
+					<ul style="padding:0;">
+						<li class="innerList"><a href="pages/images/images.html">images</a></li>
+						<li class="innerList"><a href="pages/images/images2.html">images2</a></li>
+						<li class="innerList"><a href="pages/images/images3.html">images3</a></li>
+						<li class="innerList"><a href="pages/images/images4.html">images4</a></li>
+					</ul>
+				</li>
+				<li class="dropDownTrigger"><a href="#">images</a></li>
         <li class="dropDown">
 					<ul style="padding:0;">
-						<li class="innerList"><a href="forms.html">forms</a></li>
-						<li class="innerList"><a href="forms2.html">forms2</a></li>
-						<li class="innerList"><a href="forms3.html">forms3</a></li>
+						<li class="innerList"><a href="pages/forms/forms.html">forms</a></li>
+						<li class="innerList"><a href="pages/forms/forms2.html">forms2</a></li>
+						<li class="innerList"><a href="pages/forms/forms3.html">forms3</a></li>
 					</ul>
 				</li>
 				<li class="dropDownTrigger"><a href="#">forms</a></li>
-        <li><a href="youTube.html">youTube</a></li>
         <li class="dropDown">
 					<ul style="padding:0;">
-						<li class="innerList"><a href="getData2.html">getData1</a></li>
-						<li class="innerList"><a href="getData2.html">getData2</a></li>
-						<li class="innerList"><a href="getData3.html">getData3</a></li>
+						<li class="innerList"><a href="pages/getData/getData2.html">getData1</a></li>
+						<li class="innerList"><a href="pages/getData/getData2.html">getData2</a></li>
+						<li class="innerList"><a href="pages/getData/getData3.html">getData3</a></li>
 					</ul>
 				</li>
         <li class="dropDownTrigger"><a href="#">getData</a></li>
-        <li><a href="trucks.html">trucks</a></li>
-        <li><a href="pokemon.html">pokemon</a></li>
+				<li class="dropDown">
+					<ul style="padding:0;">
+						<li class="innerList"><a href="pages/api/pokemon/pokemon.html">pokemon</a></li>
+						<li class="innerList"><a href="pages/api/trucks/trucks.html">trucks</a></li>
+						<li class="innerList"><a href="pages/api/youtube/youTube.html">youTube</a></li>
+					</ul>
+				</li>
+        <li class="dropDownTrigger"><a href="#">API</a></li>
 			</ul>
 		</div>
 		<div class="right-nav-container">
@@ -75,7 +95,7 @@ td {
 		<div class="col col3"> </div>
 	</div>
 	<br />
-	<div id="testInput"></div>
+	<!-- <div id="testInput"></div>
 	<div class="table-container">
 		<table id="tableId">
 			<thead id="table15">
@@ -128,7 +148,7 @@ td {
 			Uses text-decoration:underline to underline...
 		</p>
 		<small>Small</small>
-	</div>
+	</div> -->
 	<script type="text/javascript" src="js/index.js"></script>
   <script type="text/javascript" src="js/dropdown.js"></script>
 </body>

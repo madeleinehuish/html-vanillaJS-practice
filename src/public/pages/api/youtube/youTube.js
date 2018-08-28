@@ -22,14 +22,14 @@ mainVidScreen.addEventListener('mouseover', function() {
   const vidFrame = document.getElementById('vidFrame');
   setTimeout(() => {
 
-    vidFrame.style = 'position:relative; z-index: 1; width: 960px; height: 720px; bottom: 210px';
+    vidFrame.style = 'position:relative; z-index: 1; width: 960px; height: 720px; bottom: 210px; z-index:3';
   }, 35);
 })
 
 mainVidScreen.addEventListener('mouseout', function() {
   const vidFrame = document.getElementById('vidFrame');
   setTimeout(() => {
-      vidFrame.style = 'position:static; width:480px; height:360px;'; //try 40% with right margin // width:480px; height:360px;
+      vidFrame.style = 'position:static; width:480px; height:360px; z-index:0'; //try 40% with right margin // width:480px; height:360px;
     })
   }, 35);
 

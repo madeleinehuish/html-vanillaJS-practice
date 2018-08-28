@@ -1,6 +1,21 @@
+* {
+	padding: 0;
+	margin: 0;
+}
+
 body {
 	font-family: 'Raleway', sans-serif;
 	background-color:#ecf5f3;
+}
+
+h3#title {
+	margin: 20px 0 15px 150px;
+	color: purple;
+	/* margin-left: 140px; */
+}
+
+nav {
+	/* margin-top: 20px; */
 }
 
 /* links */
@@ -16,15 +31,20 @@ a:visited {
 	color:none;
 }
 
+.currentVisited {
+	color:purple;
+}
+
 /* drop down  */
 .dropDown {
 	display:none;
 	/*  76.23 x 29 */
-	height:100px;
+	/* height:100px; */
 	/* width: 76.23px; */
+	line-height:1.5;
 	width: 90px;
 	position:absolute;
-	top:60px;
+	top:100px;
 	border: 2px solid #bcf5bc;
 	background-color: #dbece8
 }
@@ -42,14 +62,15 @@ div.container {
 }
 
 div.left-nav-container {
-	width:70%;
-	height: 100px;
+	width:75%;
+	height: 50px;
 	float:left;
 }
 
 div.right-nav-container {
-	width:20%;
-	height: 100px;
+	width:15%;
+	height: 50px;
+	margin-top: -20px;
 	float:left;
 }
 
@@ -61,25 +82,25 @@ div.right-nav-container {
 .col1 {
 	background-color:#a50000;
 	float:left;
-	width:33%;
-	height:100px;
-	margin:0 .33% 0 0;
+	width:32.5%;
+	height:50px;
+	margin:0 .30% 0 .30%;
 }
 
 .col2 {
 	background-color:#3c744b;
 	float:left;
-	width:33%;
-	height:100px;
-	margin:0 .33% 0 0;
+	width:32.5%;
+	height:50px;
+	margin:0 .30% 0 0;
 }
 
 .col3 {
 	background-color:pink;
 	float:left;
-	width:33%;
-	height:100px;
-	margin:0 .33% 0 0;
+	width:32.5%;
+	height:50px;
+	margin:0 0 0 0;
 }
 
 .col1a, .col2a, .col3a {
@@ -102,10 +123,19 @@ ul {
 	text-align: center;
 }
 
-li {
+nav ul {
+	text-align: left;
+	padding-left: 150px;
+}
+
+nav * {
+	z-index: 2;
+}
+
+nav li {
 	display:inline;
 	font-size:24px;
-	margin-right: 20px;
+	margin-right: 18px;
 }
 
 input.searchInput {

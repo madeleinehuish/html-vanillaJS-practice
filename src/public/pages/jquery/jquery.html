@@ -36,11 +36,20 @@ td {
 </style>
 </head>
 <body>
+  <h3 id="title">Madeleine's Vanilla JS <span id="homeSpan">jQuery</span> Page</h3>
 	<nav>
 		<div class="left-nav-container">
 			<ul>
         <li><a href="index.html">home</a></li>
-				<li><a href="lists.html">lists</a></li>
+        <li class="dropDown">
+					<ul style="padding:0;">
+						<li class="innerList"><a href="lists.html">lists1</a></li>
+						<li class="innerList"><a href="lists2.html">lists2</a></li>
+						<li class="innerList"><a href="lists3.html">lists3</a></li>
+            <li class="innerList"><a href="lists4.html">lists4</a></li>
+					</ul>
+				</li>
+				<li class="dropDownTrigger"><a href="#">lists</a></li>
         <li class="dropDown">
 					<ul style="padding:0;">
 						<li class="innerList"><a href="forms.html">forms</a></li>

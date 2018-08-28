@@ -34,33 +34,21 @@
         padding-left: 20px;
         line-height:1.5;
       }
-      li {
-        width: 398px;
-        background-color:#ecf5f4;
-        border: 1px solid blue;
-        padding-left: 30px;
-        line-height:1.5;
-        display:block;
-      }
 
-      /* accordion panel */
-      /* p {
-        display:none;
-      } */
       .active, .accordion:hover {
           background-color: #ccc;
       }
       .panel {
-          /* padding: 0;
-          margin: 0; */
-
           background-color: white;
           display: none;
           overflow: hidden;
-          width: 400px;
-          /* height: 30px; */
+          width: 398px;
+          padding-left: 20px;
           border: 1px solid purple;
           color: black;
+      }
+      p {
+        width: 100%;
       }
 
     </style>
@@ -86,18 +74,7 @@
           Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
         </p>
       </div>
-      <!-- <div data-test-type="fourth" class="accordion">test4</div>
-      <div data-test-type="fifth" class="accordion">test5</div>
-      <div data-test-type="sixth" class="accordion">test6</div>
-      <div data-test-type="seventh" class="accordion">test7</div>
-      <div data-test-type="eighth" class="accordion">test8</div>
-      <div data-test-type="ninth" class="accordion">test9</div> -->
-      <!-- <div data-test-type="tenth" class="accordion">test10</div>
-      <div data-test-type="eleventh" class="accordion">test11</div>
-      <div data-test-type="twelfth" class="accordion">test12</div>
-      <div data-test-type="thirteenth" class="accordion">test13</div>
-      <div data-test-type="fourteenth" class="accordion">test14</div>
-      <div data-test-type="fifteenth" class="accordion">test15</div> -->
+
     </div>
 
   </body>
@@ -109,11 +86,10 @@
     // let dataType = elem.dataset.testType;
     // console.log('dataType: ', dataType);
     elem.addEventListener('click', function() {
-      elem.classList.toggle('active');
-      /* Toggle between hiding and showing the active panel */
+      elem.classList.toggle('active'); //not really necessary but nice
       let panel = elem.nextElementSibling;
-      let panelThis = this.nextElementSibling;
-      console.log('panel: ', panel);
+      // let panelThis = this.nextElementSibling;
+      // console.log('panel: ', panel);
       // console.log('panelThis: ', panelThis); //this is same as elem
       if (panel.style.display === "block") {
           panel.style.display = "none";
@@ -126,17 +102,3 @@
 
   </script>
 </html>
-
-
-<!-- let nextSibling = elem.nextSibling;
-
-let ul = document.createElement('ul');
-elem.appendChild(ul);
-let listContents = [ elem.dataset.testType, 'this is a test line' ]
-for(let l of listContents) {
-  let listElem = document.createElement('li');
-  listElem.innerHTML = l;
-  ul.appendChild(listElem);
-}
-elem.innerHTML = list;
-nextSibling.insertBefore(ul); -->
