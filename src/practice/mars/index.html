@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset=utf-8 />
+<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+
+<style>
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+
+body {
+	font-family: 'Raleway', sans-serif;
+	background-color:#f2f2f2;
+}
+
+li {
+	list-style-type: none;
+}
+
+header {
+	width:100%;
+	background-color: #C96467;
+	padding-top: 30px;
+	padding-bottom: 30px;
+	position: fixed;
+}
+
+.pseudoHeader {
+	width: 100%;
+	height: 120px;
+}
+
+.container {
+	width: 80%;
+	margin: 0 auto;
+
+	/* position:relative; */
+}
+
+.leftMain {
+	/* width: 55%;
+	height: 400px;
+	float: left; */
+	/* width: 100%; */
+	height: 100%;
+	/* background-color: red; */
+
+	/* position: fixed; */
+	/* top:0; */
+}
+.leftMainWrapper {
+	width: 55%;
+	height: 400px;
+	float:left;
+	/* background-color: red; */
+	/* overflow:scroll; */
+	/* position:relative; */
+}
+
+.rightMain {
+	/* width: 40%;
+	height: 400px; */
+	height:100%;
+	width:100%;
+	float: left;
+	background-color: #f2f2f2;
+}
+
+.rightMainWrapper {
+	width: 40%;
+	height: 400px;
+	float: left;
+	overflow:scroll;
+	border-top: 1px solid black;
+	border-bottom: 1px solid black;
+
+}
+
+#header1 {
+	width: 30%;
+	float: left;
+	margin: 0 40px 0 40px;
+}
+
+#header2 {
+	/* width: 55%; */
+}
+
+#navList li {
+	display: inline;
+	/* padding: 10px 0 0 0; */
+	margin: 10px 20px 0 0;
+	line-height: 2.0;
+}
+
+.marsSideList {
+	width: 95%;
+	margin: 0 auto;
+	border: 1px solid black;
+	height: 120px;
+}
+
+.marsSideList:hover {
+	cursor: pointer;
+}
+
+
+</style>
+
+</head>
+<body>
+	<header>
+		<div class="container">
+			<div id="header1">
+				<h2>Mars Page</h2>
+			</div>
+			<nav id="header2">
+				<ul id="navList">
+					<li>Phobos</li>
+					<li>Deimos</li>
+					<button style="margin-left: 20px; padding: 5px; cursor: pointer; background-color: #643233; color: white;" id="marsButton">Push for Mars!</button>
+				</ul>
+			</nav>
+		</div>
+	</header>
+	<div class="pseudoHeader"></div>
+	<main>
+		<div class="container">
+			<div class="leftMainWrapper">
+				<div class="leftMain">
+					<div class="appendBigPictureHere"></div>
+				</div>
+			</div>
+
+			<!-- <div class="pseudoLeftMain"></div> -->
+			<div class="rightMainWrapper">
+				<div class="rightMain">
+					<div class="appendULHere"></div>
+				</div>
+			</div>
+		</div>
+
+
+
+
+	</main>
+	<footer>
+
+	</footer>
+
+</body>
+<script>
+		// const rover = $('input[name="rover"]:checked').val();
+		const rover = 'opportunity';
+    const baseUrl = 'https://api.nasa.gov/mars-photos/api/v1/rovers/' + rover + '/photos?'
+		const dateValue2 = 'sol=200';
+    // const  dateValue2 = 'sol=' + $('#dateEntered2').val() + '&'
+    const  apiKey = 'api_key=RC2ZEmLVWlfYOkOYT5MHXkOq82VWb85ejudwxtPm&';
+		const pageValue = 'page=1'
+    // const  pageValue = 'page=' + $('#pageEntered').val()
+    // const  $xhr = $.getJSON(baseUrl + dateValue2 + apiKey + pageValue);
+		const url = baseUrl + dateValue2 + apiKey + pageValue;
+
+		const marsButton = document.getElementById('marsButton');
+		const appendBigPictureHere = document.querySelector('.appendBigPictureHere');
+		const appendHere = document.querySelector('.appendULHere');
+	  const marsUL = document.createElement('ul');
+
+
+		const updateSelectedPicture = (image) => {
+			// console.log('inside of updateSelectedPicture, id: ', id);
+			appendBigPictureHere.innerHTML = `<img src="${image}" height="400px" width="400px"/>`;
+		}
+
+		const createMarsList = (data) => {
+			console.log('data: ', data);
+
+			appendHere.appendChild(marsUL);
+			// for(let datum of data.photos) {
+			// 	console.log('datum: ', datum);
+			// 	let li =
+			// }
+
+			// let list = data.photos.map(datum => {
+			// 	return `<li>id: ${datum.id}</li>`
+			// }).join('')
+			let list = '';
+			for(let datum of data.photos) {
+				let li = document.createElement('li');
+				list += `<li class="marsSideList" data-id="${datum.id}" data-image="${datum.img_src}">
+										<img src="${datum.img_src}" height="100px" width="100px" style="display:inline-block; float:left"/>
+											<div style="float:left;text-align:left">
+												<p>rover: ${datum.rover.name}</p>
+												<p>earth date: ${datum.earth_date}</p>
+											</div>
+											</li>`;
+			}
+
+			marsUL.innerHTML = list;
+
+			for(let elem of marsUL.children) {
+				elem.addEventListener('click', function(event) {
+					console.log('event.target: ', event.target);
+					console.log('this: ', this);
+					console.log('this.dataset.im: ', this.dataset.image);
+					updateSelectedPicture(this.dataset.image); //use 'this' instead of event.target as it grabs the parent li element where the data-id is
+				}, false)
+			}
+		}
+
+		const getData = () => {
+			let xhr = new XMLHttpRequest();
+			let jsonResponse = '';
+			xhr.onload = () => {
+				if(xhr.status === 200) {
+					jsonResponse = JSON.parse(xhr.responseText);
+					console.log('jsonResponse: ', jsonResponse);
+					createMarsList(jsonResponse);
+				}
+			}
+			xhr.open('GET', 'https://api.nasa.gov/mars-photos/api/v1/rovers/opportunity/photos?sol=1&api_key=RC2ZEmLVWlfYOkOYT5MHXkOq82VWb85ejudwxtPm&page=', true);
+			xhr.send(null);
+			return jsonResponse;
+		}
+
+
+
+		marsButton.addEventListener('click', getData, false);
+
+</script>
+</html>

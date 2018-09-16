@@ -10,7 +10,7 @@
 			#formContainer {
         width:500px;
         height:600px;
-        background-color: #d2f8d2;
+        background-color: thistle;
         margin:0 auto;
         border:2px solid darkgreen;
         text-align:left;
@@ -99,10 +99,10 @@
     </style>
   </head>
   <body>
-    <p id="announcement">This form uses html : action and method="post" to send data to server</p>
+    <p id="announcement">This form uses Fetch to send data to server</p>
     <h1>Forms</h1>
     <div id="formContainer">
-      <form action="/forms" method="post">
+      <form id="form">
 
         <!-- <div class="colContainer">
           <div class="colFull">
@@ -223,7 +223,7 @@
           <fieldset>
             <div class="selectContainer">
               <legend>Pick your favorite MTG plane</legend>
-              <select name="favoritePlane">
+              <select name="favoritePlane" id="favoritePlane">
                 <option value="Zendikar">Zendikar</option>
                 <option value="Innistrad">Innistrad</option>
                 <option value="Kaladesh">Kaladesh</option>
@@ -284,11 +284,13 @@
 
 		</div>
     <div id="link">
-      <a href="./index2.html">more forms</a>
+      <a href="./practiceForm.html">more forms</a>
     </div>
   </body>
   <script>
     let inputs = document.getElementsByTagName('input');
+    let form = document.getElementById('form');
+
     for (let elem of inputs) {
       elem.addEventListener('mouseover', function() {
         elem.style.backgroundColor = '#badbd3';
@@ -297,5 +299,46 @@
         elem.style.backgroundColor = '#ecf5f3'
       })
     }
+
+    form.addEventListener('submit', () => {
+      let name = document.getElementById('name').value;
+      let address = document.getElementById('address').value;
+      let city = document.getElementById('city').value;
+      let state = document.getElementById('state').value;
+      let zip = document.getElementById('zip').value;
+      let email = document.getElementById('email').value;
+      let url = document.getElementById('url').value;
+      let planeswalker = document.querySelector('input[name="planeswalker"]:checked').value;
+      let deckColorNodes = document.querySelectorAll('input[name="deckColor"]:checked');
+      let deckColor = [];
+      //just grabbing the value from deckColorNodes doesn't work you have to do it this way
+      for(let elem of deckColorNodes) {
+        deckColor.push(elem.value);
+      }
+      let favoritePlane = document.getElementById('favoritePlane').value;
+      let comments = document.getElementById('comments').value;
+      let date = document.getElementById('date').value;
+      let secretHiddenMessage = document.querySelector('input[name="secretHiddenMessage"]').value;
+      // let file = document.getElementById('file').value;
+
+
+      let sendObject = { name, address, city, state, zip, email, url, planeswalker, deckColor, favoritePlane, comments, date, secretHiddenMessage };
+
+      fetch('forms', {
+        method: 'post',
+        headers:{
+          'Content-Type': 'application/json' //this is necessary for server to read correctly
+        },
+        body: JSON.stringify(sendObject)
+      }).then(res => {
+        console.log('res: ', res);
+        return res.text();//cannot use res.json() as response from server is just text
+      }).then(data => {
+        console.log('data: ', data);
+      })
+
+    }, false)
+
+
   </script>
 </html>

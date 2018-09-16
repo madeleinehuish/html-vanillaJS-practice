@@ -149,7 +149,7 @@ function constructVideoList(data) {
   }
 
   for(let elem of videoListDiv.children) {
-    console.log('inside of constructVideoList, elem: ', elem);
+    // console.log('inside of constructVideoList, elem: ', elem);
     elem.addEventListener('click', function(event) {
       console.log('event.target: ', event.target);
       updateSelectedVideo(event.target.dataset.id)
@@ -173,6 +173,11 @@ function updateSelectedVideo(id) {
   let mainVid = `<iframe id="vidFrame" allowfullscreen="true" height=${height} width=${width} class="iframeClass" src=${url}></iframe>`;
 
   mainVidScreen.innerHTML = mainVid;
+
+  let vidFrame = document.getElementById('vidFrame');
+  vidFrame.addEventListener('onReady', function(event) {
+    console.log('video event: ', event);
+  }, false);
 
 }
 

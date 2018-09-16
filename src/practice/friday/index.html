@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset=utf-8 />
+<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+
+<style>
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+
+body {
+	font-family: 'Raleway', sans-serif;
+	background-color:#f2f2f2;
+}
+
+header {
+	background-color: #d9d9d9;
+	padding-top: 30px;
+	padding-bottom: 30px;
+}
+
+.container {
+	width: 80%;
+	margin: 0 auto;
+
+}
+
+#header1 {
+	width: 30%;
+	float: left;
+	margin: 0 40px 0 40px;
+}
+
+#header2 {
+	/* width: 55%; */
+}
+
+#navList li {
+	display: inline;
+	/* padding: 10px 0 0 0; */
+	margin: 10px 20px 0 0;
+	line-height: 2.0;
+}
+
+.modal {
+	display: fixed;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	background-color:#323232;
+	display: none;
+}
+
+.modal-content {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin-top: 100px;
+	transform: translate(-50%, -50%);
+	background-color: white;
+	padding: 1rem 1.5rem;
+	/* height: 200px; */
+	width: 24rem;
+	border-radius: .5rem;
+	box-shadow: 2px 2px 2px 2px #b2b2b2;
+}
+
+.modal-content:hover {
+	cursor: pointer;
+}
+
+
+.show-modal {
+	opacity: 1;
+	display: block;
+	transform: scale(1.0);
+	transition: visibility 0s linear 0s, opacity 0.25s 0s transform 0.25s;
+}
+
+</style>
+
+</head>
+<body>
+	<header>
+		<div class="container">
+			<div id="header1">
+				<h2>Friday Page</h2>
+			</div>
+			<nav id="header2">
+				<ul id="navList">
+					<li>Saturday</li>
+					<li>Sunday</li>
+					<li>Monday</li>
+					<li>Tuesday</li>
+					<li>Wednesday</li>
+					<li>Thursday</li>
+				</ul>
+			</nav>
+		</div>
+	</header>
+	<main>
+		<button style="margin-left: 20px;" id="modalButton">Push for a modal</button>
+		<div class="modal">
+			<div class="modal-content">
+				This is a cool Modal
+			</div>
+		</div>
+
+
+	</main>
+	<footer>
+
+	</footer>
+
+</body>
+<script>
+	const modalButton = document.getElementById('modalButton');
+	const modal = document.querySelector('.modal');
+	const modalContent = document.querySelector('.modal-content');
+
+	const toggleModal = () => {
+		modal.classList.toggle('show-modal');
+	}
+
+	const windowOnClick = event => {
+		// console.log('window click');
+		console.log('event.target: ', event.target);
+		if(event.target === modalContent) {
+			toggleModal();
+		}
+	}
+
+	modalButton.addEventListener('click', function() {
+		// modal.style.display = "block";
+		modal.classList.toggle('show-modal')
+	}, false);
+
+	window.addEventListener('click', windowOnClick);
+</script>
+</html>

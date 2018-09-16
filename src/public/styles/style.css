@@ -1,6 +1,7 @@
 * {
 	padding: 0;
 	margin: 0;
+	box-sizing: border-box;
 }
 
 body {
@@ -82,15 +83,15 @@ div.right-nav-container {
 .col1 {
 	background-color:#a50000;
 	float:left;
-	width:32.5%;
+	width:33%;
 	height:50px;
-	margin:0 .30% 0 .30%;
+	margin:0 .20% 0 .30%;
 }
 
 .col2 {
 	background-color:#3c744b;
 	float:left;
-	width:32.5%;
+	width:33%;
 	height:50px;
 	margin:0 .30% 0 0;
 }
@@ -98,9 +99,9 @@ div.right-nav-container {
 .col3 {
 	background-color:pink;
 	float:left;
-	width:32.5%;
+	width:33%;
 	height:50px;
-	margin:0 0 0 0;
+	margin:0 .20% 0 0;
 }
 
 .col1a, .col2a, .col3a {
@@ -151,6 +152,8 @@ div.table-container, div.form-container, div.modal, div.img-container, div#openM
 
 button {
 	cursor: pointer;
+	padding: 4px;
+	border-radius: 1;
 }
 
 #homeSpan {

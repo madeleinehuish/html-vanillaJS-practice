@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>My test page</title>
+    <style>
+    body {
+      background-color: #ecf5f3;
+    }
+    h1 {
+    margin-top: 0;
+    }
+
+    ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+
+    form {
+        margin: 0 auto;
+        width: 400px;
+        padding: 1em;
+        border: 1px solid #CCC;
+        border-radius: 1em;
+        background-color: lightcyan;
+    }
+
+    div+div {
+        margin-top: 1em;
+    }
+
+    label span {
+        display: inline-block;
+        width: 120px;
+        text-align: right;
+    }
+
+    input, textarea {
+        font: 1em sans-serif;
+        width: 250px;
+        box-sizing: border-box;
+        border: 1px solid #999;
+    }
+
+    input[type=checkbox], input[type=radio] {
+        width: auto;
+        border: none;
+    }
+
+    input:focus, textarea:focus {
+        border-color: #000;
+    }
+
+    textarea {
+        vertical-align: top;
+        height: 5em;
+        resize: vertical;
+    }
+
+    fieldset {
+        width: 250px;
+        box-sizing: border-box;
+        margin-left: 136px;
+        border: 1px solid #999;
+    }
+
+    button {
+        margin: 20px 0 0 124px;
+    }
+
+    label {
+      position: relative;
+    }
+
+    label em {
+      position: absolute;
+      right: 5px;
+      top: 20px;
+    }
+    #link {
+      position:fixed;
+      bottom: 0;
+      right: 0;
+      padding: 10px;
+      border: 1px solid green;
+      cursor: pointer;
+      text-align: center;
+      margin: 10px;
+
+    }
+
+    #announcement {
+      position: absolute;
+      left:80%;
+      margin-right:10px;
+      border: 2px solid green;
+      padding: 10px;
+    }
+
+    </style>
+  </head>
+  <body>
+    <p id="announcement">This form uses XMLHttpRequest to send data to server</p>
+    <form id="form">
+      <h1>Payment Form</h1>
+      <p>Required fields are followed by <strong><abbr title="required">*</abbr></strong>.</p>
+      <section>
+        <h2>Contact Information</h2>
+        <fieldset>
+          <legend>Title</legend>
+          <ul>
+            <li>
+              <label for="title_1">
+                <input type="radio" id="title_1" name="title" value="Mr" />
+                Mister
+              </label>
+            </li>
+            <li>
+              <label for="title_2">
+                <input type="radio" id="title_2" name="title" value="Ms" />
+                Miss
+              </label>
+            </li>
+          </ul>
+        </fieldset>
+        <p>
+          <label for="name">
+            <span>Name: </span>
+            <strong><abbr title="required">*</abbr></strong>
+          </label>
+          <input type="text" id="name" name="username"/>
+        </p>
+        <p>
+          <label for="email">
+            <span>Email: </span>
+            <strong><abbr title="required">*</abbr></strong>
+          </label>
+          <input type="email" id="email" name="useremail"  />
+        </p>
+        <p>
+          <label for="pwd">
+            <span>Password: </span>
+            <strong><abbr title="required">*</abbr></strong>
+          </label>
+          <input type="password" id="pwd" name="password"  />
+        </p>
+      </section>
+      <section>
+        <h2>Payment Information</h2>
+        <p>
+          <label for="card">
+            <span>Card type:</span>
+          </label>
+          <select id="card" name="usercard">
+            <option value="visa">Visa</option>
+            <option value="mc">Mastercard</option>
+            <option value="amex">American Express</option>
+          </select>
+        </p>
+        <p>
+          <label for="number">
+            <span>Card Number:</span>
+          </label>
+          <input type="text" id="number" name="cardnumber" />
+        </p>
+        <p>
+          <label for="date">
+            <span>Expiration date:</span>
+            <strong><abbr title="required">*</abbr></strong>
+            <em>formatted as mm/yy</em>
+          </label>
+          <input type="text" id="date" name="expiration"/>
+        </p>
+      </section>
+      <p>
+        <button type="submit">Validate the Payment</button>
+      </p>
+
+    </form>
+    <div id="link">
+      <a href="./index.html">more forms</a>
+    </div>
+  </body>
+  <script>
+
+    let form = document.getElementById('form');
+    // console.log('form values: ', values);
+    form.addEventListener('submit', (event) => {
+      let title = document.querySelector('input[name="title"]:checked').value;
+      let username = document.getElementById('name').value;
+      let usermail = document.getElementById('email').value;
+      let password = document.getElementById('pwd').value;
+      let card = document.getElementById('card').value;
+      let cardnumber = document.getElementById('number').value;
+      let expiration = document.getElementById('date').value;
+      let sendObject = { username, usermail, password, title, card, cardnumber, expiration };
+      let xhr = new XMLHttpRequest();
+      xhr.onload = ()=> {
+        if(xhr.status===200) {
+          console.log('response from server: ',xhr.responseText);
+        }
+      }
+      xhr.open('POST', 'forms', true);
+      xhr.setRequestHeader('Content-Type', 'application/json');
+      xhr.send(JSON.stringify(sendObject));
+    })
+  </script>
+</html>

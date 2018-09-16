@@ -3,8 +3,9 @@
 <head>
 <meta charset=utf-8 />
 <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
-<link rel="stylesheet" type="text/css" href="styles/style.css" />
-<title>JS DOM paragraph style</title>
+<link rel="stylesheet" type="text/css" href="../../styles/style.css" />
+<link rel="icon" href="../../ganesh_favicon.png">
+<title>Madeleine getData2 Page</title>
 <style>
 .modal {
         position: fixed;
@@ -46,6 +47,31 @@
         transform: scale(1.0);
         transition: visibility 0s linear 0s, opacity 0.25s 0s, transform 0.25s;
     }
+    #tableInput {
+    	margin-bottom: 10px;
+    	padding-top: 5px;
+    }
+
+    table {
+    	margin-right: auto;
+    	margin-left: auto;
+    }
+
+    table, th, td {
+    	border-style: solid;
+    	border-color: black;
+    	border-width:2px;
+    }
+
+    td {
+    	text-align:center;
+    	width: 120px;
+    	height:40px;
+    	cursor: pointer;
+    }
+    #outerContainer {
+      height:100px;
+    }
 </style>
 </head>
 <body>
@@ -82,7 +108,7 @@
 				<li class="dropDownTrigger"><a href="#">forms</a></li>
 				<li class="dropDown">
 					<ul style="padding:0;">
-						<li class="innerList"><a href="../getData/getData1.html">getData1</a></li>
+						<!-- <li class="innerList"><a href="../getData/getData1.html">getData1</a></li> -->
 						<!-- <li class="innerList"><a href="../getData/getData2.html">getData2</a></li> -->
 						<li class="innerList"><a href="../getData/getData3.html">getData3</a></li>
 					</ul>
@@ -111,69 +137,70 @@
 		<div class="col col3"> </div>
 	</div>
 	<br />
-  <div class="container2">
-    <div class="col1a">
-      <div id="dataOutputButtonContainer">
-        <button id="dataOutputButton">Push to Get Data as List</button>
+  <div id="outerContainer">
+    <div class="container2">
+      <div class="col1a">
+        <div id="dataOutputButtonContainer">
+          <button id="dataOutputButton">Push to Get Data as List</button>
+        </div>
+      </div>
+      <div class="col2a">
+        <div id="dataOutputButtonContainerTable">
+          <button id="dataOutputButtonTable">Push to Get Data as Table</button>
+        </div>
+      </div>
+      <div class="col3a">
+        <div id="dataPostButtonContainer">
+          <button id="dataPost">Push to send Data To Server</button>
+        </div>
+      </div>
+
+    </div>
+  	<div class="container3">
+      <div class="col1a">
+        <div>
+          <button id="dataOutputButtonText">Push to Get Text Data</button>
+        </div>
+      </div>
+      <div class="col2a">
+        <div>
+          <button id="dataOutputButton3">placeholder</button>
+        </div>
+      </div>
+      <div class="col3a">
+        <div>
+          <button >placeholder</button>
+        </div>
       </div>
     </div>
-    <div class="col2a">
-      <div id="dataOutputButtonContainerTable">
-        <button id="dataOutputButtonTable">Push to Get Data as Table</button>
+  	<div class="container3">
+      <div class="col1a">
+        <div>
+          <button id="todoListButton">Push to Get Todo List</button>
+        </div>
       </div>
-    </div>
-    <div class="col3a">
-      <div id="dataPostButtonContainer">
-        <button id="dataPost">Push to send Data To Server</button>
+      <div class="col2a">
+        <div>
+          <button id="modalButton">Push to Open Modal</button>
+        </div>
+      </div>
+      <div class="col3a">
+        <div>
+          <button >placeholder</button>
+        </div>
+      </div>
+  		<div class="modal">
+        <div class="modal-content">
+          <span class="close-modal-button">X</span>
+          <h1>Hi I'm a modal!</h1>
+        </div>
       </div>
     </div>
 
   </div>
-	<div class="container3">
-    <div class="col1a">
-      <div>
-        <button id="dataOutputButtonText">Push to Get Text Data</button>
-      </div>
-    </div>
-    <div class="col2a">
-      <div>
-        <button id="dataOutputButton3">placeholder</button>
-      </div>
-    </div>
-    <div class="col3a">
-      <div>
-        <button >placeholder</button>
-      </div>
-    </div>
-  </div>
-	<div class="container3">
-    <div class="col1a">
-      <div>
-        <button id="todoListButton">Push to Get Todo List</button>
-      </div>
-    </div>
-    <div class="col2a">
-      <div>
-        <button id="modalButton">Push to Open Modal</button>
-      </div>
-    </div>
-    <div class="col3a">
-      <div>
-        <button >placeholder</button>
-      </div>
-    </div>
-		<div class="modal">
-      <div class="modal-content">
-        <span class="close-modal-button">X</span>
-        <h1>Hi I'm a modal!</h1>
-      </div>
-    </div>
-  </div>
-
-
 	<div id="dataOutput"></div>
 
 	<script type="text/javascript" src="js/getData2.js"></script>
-	<script type="text/javascript" src="js/dropdown.js"></script>
+	<script type="text/javascript" src="../../js/dropdown.js"></script>
 </body>
 </html>
