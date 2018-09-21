@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>odds and ends</title>
+	<style>
+	body {
+		background-color: #ecf5f3;
+	}
+	#formContainer {
+		margin: 100px auto 0 auto;
+		height: 300px;
+		width:600px;
+	}
+	#searchInputForm {
+		background-color: aqua;
+		height: 100px;
+		width: 30%;
+
+		border: 1px solid black;
+		text-align: center;
+		float:left;
+	}
+	#tacoBox {
+		background-color: purple;
+		height: 100px;
+		width: 30%;
+		margin-left: 10px;
+		border: 1px solid black;
+		text-align: center;
+		float:left;
+	}
+	#modalpush {
+		background-color: blue;
+		height: 100px;
+		width:30%;
+		margin-left:10px;
+		border:1px solid black;
+		text-align: center;
+		float:left;
+	}
+	input {
+		margin-top: 10px;
+	}
+
+	#modalContainer {
+		position:fixed;
+		top:0;
+		left:0;
+		background-color:grey;
+		/* margin-top: -100px; */
+		width:100%;
+		height: 100%;
+		display: none;
+		background-color: rgba(0, 0, 0, 0.5);
+	}
+	#modal {
+		position:absolute;
+		background-color:white;
+		border-radius: 2px;
+		border: 2px solid black;
+		width: 300px;
+		height: 300px;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+
+	}
+
+	</style>
+</head>
+<body>
+	<div id="modalContainer">
+		<div id="modal">
+			Check it out! I'm a modal!!!
+			<button id="closeModal">close</button>
+		</div>
+	</div>
+	<div id="formContainer">
+		<form id="searchInputForm">
+			<label for="search">
+				<input name="query" id="search" type="search" placeholder="Enter a Name"/>
+			</label>
+			<div>
+				<button id="genderButton" type="submit">Get Gender</button>
+				<button id="tacoButton" type="submit"></button>
+			</div>
+		</form>
+		<form id="tacoBox" >
+			<div>
+				<button id="tacoButton" type="submit">Get a Chuck Norris Joke</button>
+			</div>
+		</form>
+		<div id="modalpush">
+			<button id="modalButton">Push to Open Modal</button>
+		</div>
+	</div>
+
+
+</body>
+<script>
+	let genderButton = document.getElementById('submitButton');
+	let tacoButton = document.getElementById('tacoButton');
+	let tacoBox = document.getElementById('tacoBox');
+	let search = document.getElementById('search');
+	let searchForm = document.getElementById('searchInputForm');
+	let modalButton = document.getElementById('modalButton');
+	let modalContainer = document.getElementById('modalContainer');
+	let closeModal = document.getElementById('closeModal');
+	let searchString = '';
+
+	const getGender = query => {
+		let xhr = new XMLHttpRequest();
+
+		xhr.onload = () => {
+			console.log('xhr.status: ', xhr.status);
+			if(xhr.status===200) {
+				jsonResponse = JSON.parse(xhr.responseText)
+				console.log('response: ', jsonResponse)
+			}
+		}
+		xhr.open('GET', query, true);
+		xhr.send(null);
+	}
+
+	const getTaco = query => {
+		// let request = new Request('http://taco-randomizer.herokuapp.com/');
+
+
+		let xhr = new XMLHttpRequest();
+		xhr.onload = () => {
+			console.log('xhr.status: ', xhr.status);
+			if(xhr.status===200) {
+				jsonResponse = JSON.parse(xhr.responseText);
+				console.log('response: ', jsonResponse);
+			}
+		}
+		xhr.open('GET', 'https://api.chucknorris.io/jokes/random', true);
+		xhr.send(null);
+	}
+
+	// const queryAPI = (searchTerm) => {
+	// 	console.log('searchTerm ', searchTerm);
+	//
+	// 	// https://gender-api.com/get?name=Diana&key=lfeNxxyBfNnbBJLaPx
+	// 	console.log('query: ', query);
+	// 	getData(query);
+	// }
+
+	search.addEventListener('input', (event) => {
+		// console.log('event.target.value: ', event.target.value);
+		searchString = event.target.value;
+	})
+
+	tacoBox.addEventListener('submit', event => {
+		event.preventDefault();
+		console.log('submitting...');
+		getTaco();
+	})
+
+	searchForm.addEventListener('submit', (event) => {
+		event.preventDefault();
+		let query = 'https://gender-api.com/get?name=' + searchString + '&key=lfeNxxyBfNnbBJLaPx';
+		getGender(query);
+	}, false);
+
+	modalButton.addEventListener('click', () => {
+		console.log('modalButton pushed');
+		modalContainer.style.display = "block";
+	}, false);
+
+	closeModal.addEventListener('click', () => {
+		modalContainer.style.display = "none";
+	}, false)
+
+</script>
+</html>

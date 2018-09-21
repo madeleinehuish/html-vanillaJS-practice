@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<style>
+		body {
+			background-color: #ecf5f3;
+			color: green;
+			width:100%;
+			text-align:center;
+		}
+		#container {
+			background-color: #d2f8d2;
+			height:600px;
+			width:600px;
+			margin:0 auto;
+			position:relative;
+		}
+		#centerThis {
+			padding:50% 0;
+		}
+		#red {
+			background-color: red;
+			width: 30px;
+			height:30px;
+			position:absolute;
+		}
+		#red2 {
+			background-color: red;
+			width: 30px;
+			height: 30px;
+			position: absolute;
+			top:30px;
+			left:30px;
+		}
+		#blue {
+			background-color: blue;
+			width: 30px;
+			height: 30px;
+			position: absolute;
+			left: 570px;
+		}
+		#blue2 {
+			background-color: blue;
+			width: 30px;
+			height: 30px;
+			position: absolute;
+			top:30px;
+			left: 540px;
+		}
+		#green {
+			background-color: green;
+			width: 30px;
+			height: 30px;
+			position: absolute;
+			top:30px;
+			left:570px;
+		}
+		#green2 {
+			background-color: green;
+			width: 30px;
+			height: 30px;
+			position: absolute;
+			left:540px;
+		}
+		#purple {
+			background-color: purple;
+			width: 30px;
+			height: 30px;
+			position: absolute;
+			top:570px;
+		}
+		#purple2 {
+			background-color: purple;
+			width: 30px;
+			height: 30px;
+			position: absolute;
+			top:540px;
+			left:30px;
+		}
+		#teal {
+			background-color: teal;
+			width: 30px;
+			height: 30px;
+			position: absolute;
+			top:540px;
+		}
+		#teal2 {
+			background-color: teal;
+			width: 30px;
+			height: 30px;
+			position: absolute;
+			top:570px;
+			left:30px;
+		}
+		#orange {
+			background-color: orange;
+			width: 30px;
+			height: 30px;
+			position: absolute;
+			top:570px;
+			left:570px;
+		}
+		#orange2 {
+			background-color: orange;
+			width: 30px;
+			height: 30px;
+			position: absolute;
+			top:540px;
+			left:540px;
+		}
+		#aqua {
+			background-color: aqua;
+			width: 30px;
+			height: 30px;
+			position: absolute;
+			top:540px;
+			left:570px;
+		}
+		#aqua2 {
+			background-color: aqua;
+			width: 30px;
+			height: 30px;
+			position: absolute;
+			top:570px;
+			left:540px;
+		}
+		#yellow {
+			background-color: yellow;
+			width: 30px;
+			height: 30px;
+			position: absolute;
+			left:30px;
+		}
+		#yellow2 {
+			background-color: yellow;
+			width: 30px;
+			height: 30px;
+			position: absolute;
+			top:30px;
+		}
+
+		#centerBox{
+			background-color:aqua;
+			width:100px;
+			height: 100px;
+			position:absolute;
+			top: 150px;
+			left:150px;
+		}
+		#centerInCenterBox{
+			background-color:purple;
+			width: 25px;
+			height:25px;
+			position:relative;
+			/* position:absolute; */
+			top:10px;
+			left:10px;
+		}
+
+	</style>
+</head>
+<body>
+	<div id="container">
+		<div id="red"></div>
+		<div id="red2"></div>
+		<div id="blue"></div>
+		<div id="blue2"></div>
+		<div id="purple"></div>
+		<div id="purple2"></div>
+		<div id="teal"></div>
+		<div id="teal2"></div>
+		<div id="orange"></div>
+		<div id="orange2"></div>
+		<div id="aqua"></div>
+		<div id="aqua2"></div>
+		<div id="green"></div>
+		<div id="green2"></div>
+		<div id="yellow"></div>
+		<div id="yellow2"></div>
+		<div id="centerBox">
+			<div id="centerInCenterBox"></div>
+		</div>
+		<div id="centerThis">
+			This div is centered
+		</div>
+	</div>
+
+
+</body>
+<script>
+	// let myEvent = setInterval(moveBlock, 5000);
+	function moveBlock() {
+		let block = document.createElement('div');
+		block.style ='position:absolute; width:30px; height:30px; background-color:black';
+		let container = document.getElementById('container');
+		container.appendChild(block);
+		for(let row=0; row <=570; row+=30) {
+			console.log('row: ', row);
+			for(let col=0; col <= 570; col+=30) {
+				setInterval(function() { console.log('wait')}, 5000);
+				// container.style.backgroundColor = 'red';
+				block.style = `left:${col}px`
+			}
+			// container.style.backgroundColor = 'green';
+			block.style =`top:${row}px;`
+		}
+	}
+	window.addEventListener('load', moveBlock, false);
+</script>
+</html>

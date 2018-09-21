@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>My test page</title>
+    <style>
+    body {
+      background-color: #ecf5f3;
+    }
+    fieldset {
+      width: 300px;
+    }
+    input[type="text"]:hover, input[type="email"]:hover {
+      box-shadow: inset 0px 0px 1px 1px rgba(0, 0, 0, 0.5);
+      /* box-shadow: inset 0px 0px 1px 1px green; */
+    }
+
+    </style>
+  </head>
+  <body>
+
+		<form action="/form" method="post">
+      <div>
+        <label for="nameid">
+          Name: <input id="nameid" name="username" type="text" />
+        </label>
+      </div>
+      <div>
+        <label for="emailid">
+          Email: <input id="emailid" name="useremail" type="email" />
+        </label>
+      </div>
+      <fieldset>
+        Red: <input name="radioColor" value="red" type="radio"  />
+        Yellow: <input name="radioColor" value="yellow" type="radio" />
+        Green: <input name="radioColor" checked value="green" type="radio"  />
+      </fieldset>
+      <select name="selectColor">
+        <option value="red">red</option>
+        <option value="yellow">yellow</option>
+        <option value="green" selected >green</option>
+      </select>
+      <div>
+        Red: <input name="checkedColor" value="red" type="checkbox" />
+        Yellow: <input name="checkedColor" value="yellow" type="checkbox" />
+        Green: <input name="checkedColor" checked value="green" type="checkbox" />
+      </div>
+      <button type="submit" id="formButton">Submit</button>
+		</form>
+
+  </body>
+</html>

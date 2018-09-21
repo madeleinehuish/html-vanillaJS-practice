@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<style>
+		body {
+			background-color: #ecf5f3;
+			color: green;
+			width:100%;
+			text-align:center;
+		}
+		#container {
+			background-color: #d2f8d2;
+			height:600px;
+			width:600px;
+			margin:0 auto;
+			position:relative;
+		}
+
+
+
+	</style>
+</head>
+<body>
+	<div id="container">
+
+	</div>
+
+
+</body>
+<script>
+let container = document.getElementById('container');
+let toggle = false;
+for(let row = 0; row <=570; row+=30) {
+	for(let col = 0; col <= 570; col+=60){
+		let newDiv = document.createElement('div');
+		let newDiv2 = document.createElement('div');
+		if(toggle){
+			newDiv.style = `background-color: blue; width: 30px; height: 30px; position: absolute; top: ${row}px; left: ${col}px;`;
+			newDiv2.style = `background-color: yellow; width: 30px; height: 30px; position: absolute; top: ${row}px; left: ${col+30}px;`;
+		} else {
+			newDiv.style = `background-color: blue; width: 30px; height: 30px; position: absolute; top: ${row}px; left: ${col+30}px;`;
+			newDiv2.style = `background-color: yellow; width: 30px; height: 30px; position: absolute; top: ${row}px; left: ${col}px;`;
+		}
+		container.appendChild(newDiv);
+		container.appendChild(newDiv2);
+	}
+	toggle = !toggle;
+}
+</script>
+</html>
